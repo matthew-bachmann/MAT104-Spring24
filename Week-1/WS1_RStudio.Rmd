@@ -1,0 +1,28 @@
+---
+title: "Worksheet 1 : RStudio and Jupyter"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Exploring the RStudio Interface
+- RMarkdown
+
+---
+  
+During this worksheet we will explore R and RStudio. We’ll be using these throughout the course both to learn the statistical concepts discussed and to analyze real data and come to informed conclusions. 
