@@ -1,0 +1,226 @@
+---
+title: "Lab 1 - Data Manipulation"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(palmerpenguins)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Instructions
+
+In this lab, you will practice using R and getting oriented to new data sets. 
+
+### How to **complete** this assignment.
+
+* Attempt each exercise in order.
+
+* Please follow the Davidson Honor Code and rules from the course syllabus regarding seeking help with this assignment.
+
+### How to **submit** this assignment.
+
+* When you are finished, click the "Knit" button at the top of this panel and submit the HTML file in the same way you did for WS1. 
+
+* This assignment is <font color="darkred">**due Friday, January 26, no later than 5:00 pm Eastern**</font>. Late submissions are not accepted without prior approval. 
+
+---
+
+## Data Exploration
+
+
+Type the following code into the console in order to install the palmer penguin package: `install.packages("palmerpenguins")`.
+
+You only ever need to install a package **once**. However, if you put the command `install.packages("palmerpenguins")` into an R code chunk, the package will attempt to install each time we knit, and that would be horribly inefficient.
+
++ install packages in the console, once and never again
++ you do, though, need to **load** the packages you want to use each time
+
+---
+
+#### **Exercise 1. Make an R code chunk and enter the following code `library(palmerpenguins)`.**
+
+DELETE THIS LINE AND INSERT CODE CHUNK HERE
+
+---
+
+Note: You will always need to load the necessary packages in an R code chunk or else the knitting will not work. 
+
++ **install** packages in the console 
++ **load** packages in the workspace
+
+Inside the palmer penguin package is a data set called `penguins`. Run the code chunk below to see part of the data set.
+
+```{r}
+penguins
+```
+
+We can only see part of the data set here.There are many ways to view the rest of the data set, one way is to save the data set locally. Right now, the penguins data set is not in your environment (top right panel).
+
+---
+
+#### **Exercise 2. To make the `penguins` data set appear in your environment we need to save the data set into a local variable. Make an R code chunk below and save the `penguins` data into a local variable called `penguin_data`**
+
+DELETE THIS LINE AND INSERT CODE CHUNK HERE
+
+Now you should be able to see `penguin_data` in your environment. Click on the data set and answer the follow questions:
+
+#### **Exercise 3. How many penguins are in the data set? What species of penguins are represented?**
+
+<div>
+:::{#answer}
+ANSWER HERE
+:::
+</div>
+
+---
+
+`penguin_data` is stored in a table, each column and row of the table is called a **vector**. The column vectors are often referred to as **variables** or **characteristics**. The rows are often referred to as **cases** or **observations**. All together, the table is called a **data frame** or **matrix**.
+
+---
+
+#### **Exercise 4. Find more information about the palmer penguin data but using the help function. Make an R code chunk and run the command `?palmerpenguins`. Read the description. What does LETR stand for?**
+
+INSERT CODE CHUNK HERE
+
+<div>
+:::{#answer}
+ANSWER HERE
+:::
+</div>
+
+---
+
+In `penguin_data` there are many columns with different titles. You can extract a single column from the data frame using a `$`. For example, `penguins$species` gives you the species column. Extract the column bill_length_mm and save it locally.
+
+---
+
+#### **Exercise 5. Create an R code chunk and extract the column bill_length_mm. Save the column locally as `length_mm`. **
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 6. There are 25.4 millimeters in an inch. Create an R code chunk to convert the bill length in millimeters to inches and save the column locally as `length_in`. **
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 7. Run the code chunk below. What does it seem like the `table()` function does?**
+
+```{r}
+table(penguins$species)
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+---
+
+## Creating your own test data
+
+
+#### **Exercise 8. Run the code below. What does the `seq()` function do?**
+
+```{r}
+seq(-3,40,5)
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+
+
+
+#### **Exercise 9. Run the code below. What does the `sum()` function do?**
+
+```{r}
+sum(-3,40,5)
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+#### **Exercise 10. Write R code that will find the sum of all the odd numbers between 500 and 18000.**
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 11. Make a vector with a three letter abbreviation for the 12 months (eg. Jan., Feb., ...). and save the vector locally in a variable named `months` **
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 12. Make a vector with a the number of days in each month on a leap year (2024 is a leap year) and save the vector locally in a variable named `num_of_days`.**
+
+INSERT CODE CHUNK HERE
+
+---
+
+We can collect the `months` and `num_of_days` vectors into a single data frame with the `data.frame()` function.
+
+#### **Exercise 13. Make an R code chunk and enter the code `leap_year <- data.frame(months,num_of_years)`.**
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 14. Try experimenting with the code `leap_year[X,X]` where you replace the X's with numbers. For example, try `leap_year[1,1]`. What do the two numbers represent in the data frame?**
+
+INSERT CODE CHUNK HERE
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+#### **Exercise 15. Write R code that will display the number of days in February in a leap year using your data frame.**
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 16. Make a vector for the number of school holidays in each month (in July there should be 0 school holidays since there is no school). Save the vector locally as `holidays`.**
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 17. We can add the vector `holidays` to the `leap_year` data frame by running the following code `leap_year <- data.frame(leap_year,holidays). Add the vector to the data frame below.**
+
+INSERT CODE CHUNK HERE
+
+#### **Exercise 18. There is a lot of information that we could add to this data frame. Brain storm to come up with information relevant to each month. Make a new vector with the information and add it to your data frame.**
+
+INSERT CODE CHUNK HERE
+
+When finished, knit your document and save it as lastname1_lastname2_lab1.html and submit it in Moodle.
+
+
+
+
+
+
+
+
+
+
+
+
