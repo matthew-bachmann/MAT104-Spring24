@@ -1,0 +1,83 @@
+---
+title: "Worksheet 1 : RStudio and Jupyter"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Exploring the RStudio Interface
+- RMarkdown
+
+---
+  
+During this worksheet we will explore R and RStudio. We’ll be using these throughout the course both to learn the statistical concepts discussed and to analyze real data and come to informed conclusions. 
+
+
++ R is a programming language. Allow us to give instructions to a computer.
++ RStudio is an interface, it makes coding in R easier.
++ A pro of programming: the computer can do tedious tasks quickly, and it will do exactly what we tell it to.
++ A con is that R will do exactly what you tell it to
+
+## Exploring the RStudio Interface
+
++ Top Left: Workspace, take notes here. This is actually an RMarkdown file. This is like Markdown.
++ Bottom left: Console. where the magic happens. THis is base R
++ Top Right: Environment. Has saved data and variables.
++ Bottom Right: File and Package manager. It is also where plots will appear.
+
+### R Console
+
+Here is where R actually does stuff.
+
+1. Does R follow PEMDAS (BEMDAS)? How can you test this in the console?
+
+Answer here.
+
+2. Type 3:7 into the console. What does the colon do in R?
+
+Answer here.
+
+3. Go to the console and press the up arrow key.What does this do?
+
+Answer here.
+
+### Workspace
+
+Go to the top of the page and click knit
+
+Adding R code to our notes, you can do this by clicking the green C at the top of the page and selecting the option R:
+
+```{r}
+3^5
+```
+
+Now press play and notice how this sends your R code down to the console to be executed.
+
+Using R code chunks allows you to:
++ save and share work in a presentable way
++ Run a particular command again later
++ Make small edits without needing to retype everything.
+
+4. Make an R code chunk and type 3:7 into it.
+
+Answer here.
+
+5. Make an R code chunk and evaluate $44(37)+129$. (Hint, if you type exactly what I put, you will get an error. Why is that happening, how can you fix it?)
+
+Answer here.
+
