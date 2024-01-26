@@ -1,0 +1,89 @@
+---
+title: "Worksheet 3 : Measures of Central Tendency"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(readr)
+library(knitr)
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Wrap-Up Variables
+- Measures of Central Tendency
+
+---
+  
+## Wrap-Up Variables
+
+## Measures of Central Tendency
+
+
+
+---
+
+## Class Activity
+
+3. Go to https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/misleading-graphs/ and use the graphs as inspiration to determine some bad practices when displaying data.
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+4. How many variables are there in the `surveySP24` data set? How many observations? What is the largest number of grapes someone thinks they can fit in their mouth?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+5. For each variable in `surveySP24`, identify what type it is: numerical discrete, numberical continuous, categorical nominal,  or categorical ordinal?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+6. Install the package `fivethirtyeight` in the console, load it in the code chunk below and save the data biopics locally.
+```{r}
+#insert code here
+```
+
+
+7. Find the mean of box office draws (box_office) for biopics in this dataset
+```{r}
+#insert code here
+```
+
+8. Demonstrate two different ways to get the median of box office draws (box_office) for biopics in this dataset
+```{r}
+#insert code here
+```
+
+9. Why are the mean and median so different
+```{r}
+#insert code here
+```
