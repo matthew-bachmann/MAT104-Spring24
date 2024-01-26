@@ -73,12 +73,12 @@ ANSWER HERE
 ```
 
 
-7. Find the mean of box office draws (box_office) for biopics in this dataset
+7. Find the mean of box office draws (`box_office`) for biopics in this dataset
 ```{r}
 #insert code here
 ```
 
-8. Demonstrate two different ways to get the median of box office draws (box_office) for biopics in this dataset
+8. Find the median of box office draws (`box_office`) for biopics in this dataset
 ```{r}
 #insert code here
 ```
