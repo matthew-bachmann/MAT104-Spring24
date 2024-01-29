@@ -1,0 +1,283 @@
+---
+title: "Lab 2-Data Manipulation and Scatterplots"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Instructions
+
+In this lab, you will practice manipulating data and creating scatterplots plots. 
+
+### How to **complete** this assignment.
+
+* Attempt each exercise in order.
+
+* Please follow the Davidson Honor Code and rules from the course syllabus regarding seeking help with this assignment.
+
+### How to **submit** this assignment.
+
+* When you are finished, click the "Knit" button at the top of this panel and submit the HTML file in the same way you did for WS1. 
+
+* This assignment is <font color="darkred">**due Friday, February 2, no later than 5:00 pm Eastern**</font>. Late submissions are not accepted without prior approval. 
+
+---
+
+#### **Exercise 1:**
+
++ **Load the `tidyverse` and `openintro` packages.** 
++ **Save the `nycflights` data set from the `openintro` package locally and name it `flights`.** 
+
+
+```{r}
+#insert code here
+```
+
+
+---
+
+## Logical Operators
+
+When you make logical statements with `R` it will respond with whether your statement is true or false. For example, if you ask `R` whether "to" is equal to "two" it will say false. Run the code below:
+
+```{r}
+"to" == "two"
+```
+
+Notice that we use two `=` sings for checking if things are equal (one equal sign is an assignment operator, similar to `->`).
+
+Other operations `R` will check are:
+
++ greater than `>`
++ greater than or equal to `>=`
++ less than `<`
++ less than or equal to `<=`
++ equal to `==`
++ not equal to `!=`
+
+You can also impose multiple conditions with the `&` (and) operator and `|` (or) operator. For example, you can ask `R` if $7$ is greater than or equal to $3$ with 
+
+```{r}
+7 >= 3
+```
+
+`R` outputs true. 
+
+Now to use the `&` operator you can ask if $7$ is greater than $3$ **and** smaller than $5$:
+
+```{r}
+7 >= 3 & 7 < 5
+```
+
+We can also ask `R` if $7$ is greater than or equal to $3$ **or** $7$ is smaller than $5$
+```{r}
+7 >= 3 | 7 < 5
+```
+
+Now `R` outputs true.
+
+#### **Exercise 2: Write `R` code that outputs True if $11^4$ is bigger than $8 \times 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1$ and outputs false otherwise.**
+
+```{r}
+# insert code here
+```
+
+#### **Exercise 3: The code chunk below makes a vector of random numbers named `test_values`. Run the given code chunk then make another code chunk that will output a vector of `TRUE` or `FALSE` based on whether the numbers in `test_values` are bigger than $3$ and smaller than $20$**.
+
+```{r}
+test_values <- runif(15,1,100)
+```
+
+```{r}
+# insert code here
+```
+
+---
+
+## Filtering data
+
+Often we will want to `filter()` a data set according to certain criteria. 
+
+To use the `filter()` function you will pass in two arguments: 
+
++ the first argument is the data set 
++ the second argument is the condition you want to filter by. 
+
+Let's `filter()` the `flights` data to find flights that departed and arrived on time:
+
+```{r, eval=FALSE}
+on_time_flights <- filter(flights, dep_delay == 0  | arr_delay == 0)
+```
+
+To find all flights that arrived on time but did not depart on time we would run the code:
+
+```{r, eval=FALSE}
+only_arrived_on_time <- filter(flights, dep_delay != 0  & arr_delay == 0)
+```
+
+To filter by anything by words instead of numbers you need to put quotes around the words: 
+
+```{r, eval=FALSE}
+filter(flights, origin == "JFK")
+```
+
+---
+
+##### **Exercise 4. Find all flights that arrived more than $60$ minutes late. How many are there?**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+##### **Exercise 5. Locally save a new data matrix called `sfo_feb_flights` that only has flights headed to SFO in February. How many flights meet these criteria?** 
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+##### **Exercise 6. What is the average arrival delay for `sfo_feb_flights`?**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+## Statistics by group
+
+You can also calculate statistics for certain groups of your data. 
+
+In order to get the average distance for all the flights we would use the command `mean(flights$distance)`.
+
+However, in order to find the average distance **for each** month we need to `group_by()` month:
+
+```{r, eval=FALSE}
+summarize(group_by(flights,month),mean(distance,na.rm=TRUE))
+```
+
+---
+
+##### **Exercise 7. Calculate the mean and median for arrival delays of flights in the `flights` data frame, grouped by carrier.**
+
++ **Which carrier has the highest mean arrival delay?**
++ **Which carrier has the highest median arrival delay?**
+
+```{r}
+#insert code here
+```
+
+
+##### **Exercise 8. Add a column to the data frame `flights` that has the average speed for each flight (in mph). Hint: Average speed can be calculated as distance divided by number of hours of travel, and note that `air_time` is given in minutes.**
+
+```{r}
+#insert code here
+```
+
+
+
+##### **Exercise 9. Make a scatterplot of average speed vs. distance.**  
+
+```{r}
+#insert code here
+```
+
+
+##### **Exercise 10. Add color to your scatter plot in order to distinguish between the origin airport.**
+
+```{r}
+#insert code here
+```
+
+##### **Exercise 11. Based on your scatterplot, does it seem that a particular airport flies shorter distance than the other two?**
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+### Penguins
+
+##### **Exercise 12. Load the palmer penguin data and create a scatterplot that plots flipper length against body mass.**
+
+```{r}
+#insert code here
+```
+
+##### **Exercise 13. Add color to the graph based on the species of penguin.**
+
+```{r}
+#insert code here
+```
+
+
+##### **Exercise 14. What features of the graph from exercise 10 are more clear once color is added?**
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+##### **Exercise 15. Finally, split your plot into facets based on the island they live on?**
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+##### **Exercise 16. Which island has the fewest number of species on it?**
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
