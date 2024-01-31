@@ -1,0 +1,111 @@
+---
+title: "Worksheet 4 : Data Visualization"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(readr)
+library(palmerpenguins)
+library(openintro)
+library(knitr)
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
++ Scatter plots
++ Histograms
++ Skewness
+
+---
+  
+## Scatter plots
+
+
+
+1. Plot a scatter plot of the yrbss height vs. weight graph and add color to the graph according to grade.
+
+```{r}
+# insert code here
+```
+
+
+
+## Histograms
+
+2. Make a vector called `height_in` by converting the heights to inches (there are $.0254$ meters in $1$ inch). 
+
+```{r}
+# insert code here
+```
+
+3. Add that column to the `teen_data`.
+
+```{r}
+# insert code here
+```
+
+4. Make a histogram for the heights of teens where the bin width is 1 inch.
+
+```{r}
+# insert code here
+```
+
+5. Try making a histogram for `race` in the yrbss data.
+
+```{r}
+# insert code here
+```
+
+### Density
+
+
+
+## Skewness
+
+Skew is a word we use to describe the shape of a distribution.
+
++ A **symmetric** distribution looks like:
+
+```{r, echo = FALSE}
+hist(rbeta(30000,5,5), main="Symmetric", xlab=NULL, ylab=NULL, xaxt='n', yaxt='n')
+```
+
++ A **right** skew in a distribution looks like:
+
+```{r, echo = FALSE}
+hist(rbeta(30000,2,5), main="Right Skew", xlab=NULL, ylab=NULL, xaxt='n', yaxt='n')
+```
+
++ A **left** skew in a distribution looks like:
+
+```{r, echo = FALSE}
+hist(rbeta(30000,5,2), main="Left Skew", xlab=NULL, ylab=NULL, xaxt='n', yaxt='n')
+```
+
+
+6. For each distribution shape (symmetric, right-skew, left-skew) compare the mean and median (eg. mean and median are about the same, mean is greater, median is greater)? 
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
+
+When you have finished, Knit your project as an html document and submit the html document in Moodle with the following file name: "yourlastname_WS4.html"
