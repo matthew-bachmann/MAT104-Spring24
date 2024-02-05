@@ -1,0 +1,236 @@
+---
+title: "Lab 3 - Measures of Dispersion"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Instructions
+
+In this lab, you will practice using R and getting oriented to new data sets. 
+
+### How to **complete** this assignment.
+
+* Attempt each exercise in order.
+
+* Please follow the Davidson Honor Code and rules from the course syllabus regarding seeking help with this assignment.
+
+### How to **submit** this assignment.
+
+* When you are finished, click the "Knit" button at the top of this panel and submit the HTML file. 
+
+* This assignment is <font color="darkred">**due Friday, February 9, no later than 5:00 pm Eastern**</font>. Late submissions are not accepted without prior approval. 
+
+---
+
+## Measures of Disperison
+
+### Mean absolute deviation
+
++ both range and IQR are coarse measurements of dispersion. 
++ They don't factor in every data point, in fact, they only use two points.
++ Instead, we want a measurement that tells us how spread out **all** the data is.
++ one idea is to measure how far each point is from the center of the data. 
+
++ Suppose there is a data set with $n$ data points ($n$ can be any whole number). 
++ So, our data set has values $X_1,X_2,X_3, \dots, X_n$
++ For every point $X_i$ in our data set, we will measure how far it is (how much it **deviates**) from the mean:
+
+$$ \bar{X}-X_i $$
++ If a number is 3 units bigger than the mean, the deviation will be $-3$. 
++ We only care *how far* the point is, not if it's bigger or smaller, so we take the **absolute** value
+
+$$| \bar{X}-X_i |$$
+
+Finally, we take the average of all the **absolute deviations** from the **mean**. (hence, the name mean absolute deviation):
+
+$$ \displaystyle \frac{\sum_{i=1}^n | \bar{X}-X_i |}{n}$$
+
+Let's start with a small data set. Run the code below to load the data set:
+
+```{r}
+example_data <- c(2, 0, 6, 28, 19, 65)
+```
+
+1. Write code to find the mean of the `example_data` and save it in a local variable called `mean_example_data`.
+
+```{r}
+# insert code here
+```
+
+2. Fill in the table below by deleting the question marks and inserting the appropriate values: 
+
+
+| data index $i$ | value $X_i$ | deviation from mean $\bar{X}-X_i$ | absolute deviation  $|\bar{X}-X_i|$|
+| :---:|:---:|:---------:|:--------:|
+| 1          |  2    |        ?            |          ?          |
+| 2          |  0    |        ?            |          ?          |
+| 3          |  6    |        ?            |          ?          |
+| 4          |  28   |        ?            |          ?          |
+| 5          |  19   |        ?            |          ?          |
+| 6          |  65   |        ?            |          ?          |
+
+
+3. Now write code to compute the **mean absolute deviation**
+
+```{r}
+# insert code here
+```
+
+### **Median Absolute Deviation**.
+
++ The **median absolute deviation** is the average absolute deviation from the median rather than the mean.
+
+Now for the example data, we will compute the median absolute deviation using more help from `R`. The code below finds the median absolute deviation in a single line of code:
+
+```{r}
+mean(abs(median(example_data)- example_data))
+```
+
+4. Which is larger, the mean absolute deviation or the median absolute deviation?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+### **yrbss data**
+
+5. Load the `openintro` package. Also save the `yrbss` data from the open intro package locally as `teen_data`.
+
+```{r}
+#insert code here
+```
+
+6. Use the `filter()` function to create a data set only containing data for ninth graders. Save the data locally as `ninth_graders`.
+
+```{r}
+#insert code here
+```
+
+7. Find the mean weight of ninth graders.
+
+```{r}
+#insert code here
+```
+
+8. Find the median weight of ninth graders.
+
+```{r}
+#insert code here
+```
+
+9. Based on the mean and median, can you predict if the distribution of data is symmetric, right skewed, or left skewed?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+### 
+
+10. The school added a vending machine with unhealthy snacks near a heavily trafficked area. This caused the top $10 \%$ heaviest ninth graders to gain more weight, however, the other $90 \%$ of students stayed the same weight. How would this affect the mean and median?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+11. Create a histogram for the weights of ninth graders. Adjust your bin width till you think it is apporpriate.
+
+```{r}
+#insert code here
+```
+
+12. Explain why you chose the bin width that you did. Also, describe the over all shape of the distribution.
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+12. Create a density histogram for the weights of ninth graders.
+
+```{r}
+#insert code here
+```
+
+13. Explain how the density histogram differs from the histogram you made in Exercise 11.
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+14. Make a box plot for the weight of ninth graders (make sure all your box plots are oriented vertically rather than horizontally).  
+
+```{r}
+#insert code here
+```
+
+15. Are there any outliers for the weight of ninth graders? How does support or refute your conclusions about the shape of the distribution?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+16. Make a box plot for the weight of all students in the yrbss data faceted by grade. (We don't want there to be a box plot with "other" or "NA", use `filter()` to get just the data for the grade levels)
+
+```{r}
+#insert code here
+```
+
+17. Let's make the box plots look a little nicer. You may need to do some searching on the internet. Add an appropriate title to the histogram. Add a label to the $y$-axis that tells the viewer the units wight is measured in. Figure out how to remove the $x$-axis labels since they are meaningless. Make the $y$-axis display every $20$ tick marks from $0$ to $180$. Add any other aesthetic improvements you may believe useful.
+
+```{r}
+#insert code here
+```
+
+18. Explain some reasons why it makes sense for fewer outliers to be underweight? (Think about how far the whisker extends and how much someone would need to weigh to be considered an outlier.)
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+19. Find the mean absolute deviation of weights for the other three grade levels. 
+
+```{r}
+#insert code here
+```
+
+
