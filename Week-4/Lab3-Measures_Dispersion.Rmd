@@ -211,7 +211,13 @@ ANSWER HERE
 #insert code here
 ```
 
-18. Let's make the box plots look a little nicer. You may need to do some searching on the internet. Add an appropriate title to the histogram. Add a label to the $y$-axis that tells the viewer the units wight is measured in. Figure out how to remove the $x$-axis labels since they are meaningless. Make the $y$-axis display every $20$ tick marks from $0$ to $180$. Add any other aesthetic improvements you may believe useful.
+18. Let's make the box plots look a little nicer. You may need to do some searching on the internet. Make the following changes: 
+
++ Add an appropriate title to the histogram. 
++ Add a label to the $y$-axis that tells the viewer the units weight is measured in.
++ Figure out how to remove the $x$-axis labels since they are meaningless. 
++ Make the $y$-axis display every $20$ tick marks from $0$ to $180$. 
++ Add any other aesthetic improvements you may believe useful.
 
 ```{r}
 #insert code here
