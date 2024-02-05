@@ -173,13 +173,13 @@ ANSWER HERE
 :::
 </div>
 
-12. Create a density histogram for the weights of ninth graders.
+13. Create a density histogram for the weights of ninth graders.
 
 ```{r}
 #insert code here
 ```
 
-13. Explain how the density histogram differs from the histogram you made in Exercise 11.
+14. Explain how the density histogram differs from the histogram you made in Exercise 11.
 
 <div>
 :::{#answer}
@@ -189,13 +189,13 @@ ANSWER HERE
 :::
 </div>
 
-14. Make a box plot for the weight of ninth graders (make sure all your box plots are oriented vertically rather than horizontally).  
+15. Make a box plot for the weight of ninth graders (make sure all your box plots are oriented vertically rather than horizontally).  
 
 ```{r}
 #insert code here
 ```
 
-15. Are there any outliers for the weight of ninth graders? How does support or refute your conclusions about the shape of the distribution?
+16. Are there any outliers for the weight of ninth graders? How does support or refute your conclusions about the shape of the distribution?
 
 <div>
 :::{#answer}
@@ -205,19 +205,19 @@ ANSWER HERE
 :::
 </div>
 
-16. Make a box plot for the weight of all students in the yrbss data faceted by grade. (We don't want there to be a box plot with "other" or "NA", use `filter()` to get just the data for the grade levels)
+17. Make a box plot for the weight of all students in the yrbss data faceted by grade. (We don't want there to be a box plot with "other" or "NA", use `filter()` to get just the data for the grade levels)
 
 ```{r}
 #insert code here
 ```
 
-17. Let's make the box plots look a little nicer. You may need to do some searching on the internet. Add an appropriate title to the histogram. Add a label to the $y$-axis that tells the viewer the units wight is measured in. Figure out how to remove the $x$-axis labels since they are meaningless. Make the $y$-axis display every $20$ tick marks from $0$ to $180$. Add any other aesthetic improvements you may believe useful.
+18. Let's make the box plots look a little nicer. You may need to do some searching on the internet. Add an appropriate title to the histogram. Add a label to the $y$-axis that tells the viewer the units wight is measured in. Figure out how to remove the $x$-axis labels since they are meaningless. Make the $y$-axis display every $20$ tick marks from $0$ to $180$. Add any other aesthetic improvements you may believe useful.
 
 ```{r}
 #insert code here
 ```
 
-18. Explain some reasons why it makes sense for fewer outliers to be underweight? (Think about how far the whisker extends and how much someone would need to weigh to be considered an outlier.)
+19. Explain some reasons why it makes sense for fewer outliers to be underweight? (Think about how far the whisker extends and how much someone would need to weigh to be considered an outlier.)
 
 <div>
 :::{#answer}
@@ -227,7 +227,7 @@ ANSWER HERE
 :::
 </div>
 
-19. Find the mean absolute deviation of weights for the other three grade levels. 
+20. Find the mean absolute deviation of weights for the other three grade levels. 
 
 ```{r}
 #insert code here
