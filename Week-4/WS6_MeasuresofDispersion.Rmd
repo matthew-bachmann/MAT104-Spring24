@@ -1,0 +1,110 @@
+---
+title: "Worksheet 6 : Measures of Dispersion II"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Variance
+- Samples and Populations
+- Standard Deviation
+
+---
+
+Notes about lab:
+
++ make sure you are using ggplot for graphs
++ when you google how to change your graphs, make sure to include the word ggplot in your search
++ In the 17th problem it should say "add an appropriate title to your *box plots*"
+
+## Review - Measures of Dispersion
+
+So far, we have covered:
+
++ range, easy to calculate, not very descriptive
++ interquartile range, a little better than the range becuase it ignores outliers
++ mean and median absolute deviation (these are seldom used but do occassionally come up)
++ the most common measures of dispersion are the variance and standard deviation
+  
+## Variance
+
+
+$$ Var(X) = s^2 =  \displaystyle \frac{\sum_{i=1}^n (\bar{X} - X_i)^2}{n} $$
+
+
+---
+
+1. Plot a histogram for the `yrbss` weight data. 
+
+```{r}
+# insert code here
+```
+
+2. Is the weight data symmetric, right-skewed, or left-skewed?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+3. Find the mean, variance, and standard deviation for the weight data.
+
+```{r}
+# insert code here
+```
+
+
+
+4. What percentage of data lies within one standard deviation of the mean (find this exactly)?
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+5. Is the percentage of data within one standard deviation of the mean more or less what you would expect using the general rule of thumb?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+6. If a data set has mean $7$ and standard deviation $2$, how many standard deviations from the mean is the data point $11$? What about the data point $6$?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
