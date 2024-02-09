@@ -1,0 +1,81 @@
+---
+title: "Worksheet 7 : Standard Scores"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+library(palmerpenguins)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Standardized Scores
+- Probability
+
+
+---
+
+
+## Review - Standard Deviation
+
+1. Load the `palmerpenguin` package.
+
+```{r}
+# insert code here
+```
+
+2. Estimate the population mean, population variance, and population standard deviation for the bill length of the penguins.
+
+```{r}
+# insert code here
+```
+
+3. Who performed better on their exam?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+  
+## Standard Scores
+
+
+
+## Probability
+
+### Random Variables
+
+
+
+4. What is the sample space is two different integers are chosen between $1$ and $5$ and listed in increasing order?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+5. What is the sample space if three dice are rolled and the sum is computed?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
