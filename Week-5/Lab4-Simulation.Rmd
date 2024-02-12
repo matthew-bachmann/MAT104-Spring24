@@ -1,5 +1,5 @@
 ---
-title: "Lab 4 - Measures of Dispersion"
+title: "Lab 4 - Simulation"
 author: Student 1 Name, Student 2 Name
 output:
   html_document:
