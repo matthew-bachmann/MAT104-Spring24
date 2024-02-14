@@ -1,0 +1,152 @@
+---
+title: "Worksheet 8 : Probability"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Probability
+- Total Probability
+- Fundamental Counting Principle
+
+---
+
+
+## Review - Probability
+
+## Probability
+
++ Probability is the language of likelihoods
+
+### Random Variables
+
++ A **random variable** is an object that depends on the outcome of a random event, usually denoted by $X$
++ Examples of a random variable: the face showing for a dice roll, the number of $5$'s in $10$ die rolls, the number of children in a family, the amount of time before a light bulb goes out.
++ there are discrete random variables and continuous random variables.
+
+
+
+1. What is the sample space if two different integers are chosen between $1$ and $5$ and listed in increasing order?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+2. What is the sample space if three dice are rolled and the sum is computed?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+3. Choose $2$ marbles from a bag with $2$ red marbles, $2$ blue marbles, and $1$ green marble.
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+
+
+4. If roll two 4-sided dice, what is the probability of getting doubles?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+5. What is the probability of getting at least one head when flipping a coin twice?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+## Fundamental Counting Principle
+
+
+
+## Probability Distribution
+
+
+6. Is the following graph a probability distribution describing flipping two fair coins. Why or why not?
+
+```{r}
+coin <- data.frame(result = c("2 heads", "1 heads"), probability = c(1/4,3/4))
+ggplot(coin, aes(x=result,y=probability))+geom_bar(stat="identity")
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+7. What is the probability of pulling two red marbles from a bag with 2 red marbles, 2 blue marbles, and 1 green marble?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+8. On a six sided fair die, what is the probability of rolling an even number or a one?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+9. What is the probability of getting at least one heads if you flip a coin three times?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+10. From the very first question on this worksheet, what is the probability of the first number being a $2$? What is the probability of the first number being a $5$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
