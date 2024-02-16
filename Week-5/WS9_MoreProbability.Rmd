@@ -1,0 +1,225 @@
+---
+title: "Worksheet 9 : Conditional Probability"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Basics
+- Pairs of Events
+- Disjoint and Independent Events
+- Complement
+
+
+---
+
+
+## Review - Probability
+
+## Probability
+
++ Recall that if every outcome is equally likely in a sample space, then 
+
+$$P( X = \text{event}) = \frac{\text{# of successful outcomes}}{\text{total # of outcomes}}$$
+
++ If you are ever stuck on a probability problem, try listing out all the possible events.
++ Then all you have to do is count the successful ones and divide by the total.
++ A probability distribution is a description of the probabilities of a sample space where:
+  - one event must occur
+  - the probabilities add to 1
+  
+1. Describe the probability distribution for counting the number of heads in three coin flips.
+
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
+## Pairs of events
+
+2. What is the probability of rolling a number greater than three or rolling a four?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+## Disjoint and Independent events
+
+Two events are called **disjoint** if they can't both happen at the same time. 
+
++ heads and tails are disjoint events
++ an even die roll and a die roll that shows a 3 are disjoint
++ drawing a seven from a deck of cards and drawing a heart from a deck of cards are NOT disjoint. You can get the seven of hearts
+
+Two events are called **independent** if the outcome of one does not affect the probability of the other.
+
++ consecutive coin flips are independent 
++ drawing a two cards from a deck are NOT independent.
+
+
+3. If events $A$ and $B$ are **disjoint**, $P(A)=.3$ and $P(B)=.4$, what is $P(A \text{ and } B)$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+4. If events $A$ and $B$ are **independent**, $P(A)=.3$ and $P(B)=.4$, what is $P(A \text{ and } B)$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+## Complement 
+
+
+
+Given a sample space 
+
+$$S = \{ a, b,c,d,e,f \}$$
+
+and event 
+
+$$A = \{a,d,f \}$$
+
+3. What is $A^c$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+4. What is $P(A) + P(A^c)$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+5. Find the probability that two people in our class have the same birthday.
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+6. Describe the probability distribution of rolling two dice and finding the sum?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+7. Plot the probability distribution from the last problem.
+
+```{r}
+# insert code here
+```
+
+8. What is the probability of getting at least two heads when flipping a coin ten times?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
+9. Suppose you flip a fair coin twice, answer the following questions
+
++ What is the probability of event **A**: getting at most one heads
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
++ What is the probability of event **B**: getting two of the same result (two heads or two tails)
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
++ What is the probability of event **C**: getting heads on the first flip and tails on the second.
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
++ Are events $A$ and $B$ disjoint, independent, both, or neither?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
++ Are events $A$ and $C$ disjoint, independent, both, or neither?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
++ Are events $B$ and $C$ disjoint, independent, both, or neither?
+
+<div>
+:::{#answer}
+answer here
+:::
+</div>
+
