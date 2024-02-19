@@ -1,0 +1,333 @@
+---
+title: "Lab 5 - Probability Practice"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+Make sure to show all your work for these problems. Simply listing the answer will not recieve full credit.
+
+If you are unfamiliar with the composition of a deck of playing cards please use this as a reference:
+
++ there are 52 cards in a deck
++ there are two colors in a deck, red and black with 26 cards each
++ Each color has two suits with 13 cards each
++ The red cards are diamonds or hearts
++ The black cards are clubs or spades
++ Each set of thirteen cards can be a 2,3,4,5,6,7,8,9,10,Jack,Queen,King,Ace
++ The jack, queen, king, ace are called "face" cards, the numbered cards are not face cards
++ You can google "deck of playing cards" to see an image of what I just described 
+
+1. A family has three children that were each boy or girl at birth. What is the sample space for the children's sex at birth?
+
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+2. Assuming the probability of having a boy or girl is equal, what is the probability that the family has two boys and one girl?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+3. Suppose you roll a fair six sided die and draw a card from a deck. How many outcomes are in the sample space?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+4. Are the events of rolling an even number and drawing a red card from a deck independent?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+5. What is the probability of rolling an even number **and** drawing a red card?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+6. Are the events of rolling an even number and drawing a red card from a deck disjoint?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+7. What is the probability of rolling an even number **or** drawing a red card?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+8. Suppose you roll a fair 20 sided die. Let $A = \{ \text{even number} \}$ and $A = \{ \text{numbers } \geq 13 \}$. Find the following:
+
+<div>
+:::{#answer}
+
+$P(A)=$
+
+$P(B)=$
+
+$P(A \text{ and }B)=$
+
+$P(A \text{ or }B)=$
+
+$P(A^c)=$
+
+$P(B^c)=$
+
+$P(A) + P(A^c) =$
+
+$P(B) + P(B^c) =$
+
+
+:::
+</div>
+
+9. The next four questions all relate to the following: Five people choose a number at random from 1 to 30. The outcome of interest is the five chosen numbers. How many possible outcomes are there?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+10. How many ways can the 5 people choose all different numbers?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+11. Assuming each number between $1$ and $30$ is equally likely to be chosen, what is the probability that every person chooses a different number?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+12. Assuming each number between $1$ and $30$ is equally likely to be chosen, what is the probability that at least two people choose the same number?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+13. On a fair six sided die, what is the probability that you roll a six twice in a row?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+14. On a fair six sided die, what is the probability that you roll a six ten times in a row?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div> 
+
+15. Suppose you are on a streak and manage to roll a six ten times in a row, what is the probability that you roll a six on your eleventh roll?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div> 
+
+16. Suppose $P(A)=.5$ and $P(B)=.2$. Assume $A$ and $B$ are disjoint, then find:
+
+<div>
+:::{#answer}
+
+$P(A \text{ and } B) =$
+
+$P(A \text{ or } B) =$
+
+:::
+</div>
+
+17. Suppose $P(A)=.5$ and $P(B)=.2$. Assume $A$ and $B$ are independent, then find:
+
+<div>
+:::{#answer}
+
+$P(A \text{ and } B) =$
+
+$P(A \text{ or } B) =$
+
+:::
+</div>
+
+18. Can any two events $A$ and $B$ be both disjoint and independent? Explain your reasoning.
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+19. In the game of Yahtzee, you roll 5 fair six sided die. Getting all the die to land with the same face showing is called "getting a yahtzee". What is the probability of getting a yahtzee on your first attempt of rolling the 5 dice?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+20. Suppose you have a *loaded* six sided die. This means that not all of the sides have equal probability. On your loaded die there is a $50 \%$ chance to roll a six, $P(6)=.5$. Every other side happens with equal probability, so $P(1)=P(2)=P(3)=P(4)=P(5)$. Find the following probabilities:
+
+<div>
+:::{#answer}
+
+$P(1)=$
+
+$P(1 \text{ or } 2)=$
+
+$P(\text{ even })=$
+
+
+:::
+</div>
+
+21. In reference to the previous problem, suppose I roll the loaded die and hide the result from you. I tell you that the result is even. What is the probability that it is a six? For this question make sure to explain in words how you arrive at the answer that you do. If you don't know how to get an exact number try to give an estimate. For example, you might say "I know the probability of it being a six is bigger that $20 \%$ and less than $100 \%$ because...". Try to give your best possible estimate and explain your answer.
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+22. Suppose you draw a card from a deck of playing cards. Let $H = \{ \text{heart} \}$ be the event that the card drawn is a heart and $A = \{ \text{ace} \}$ be the event that the card drawn is an ace. Find the probability of each event:
+
+<div>
+:::{#answer}
+
+$P(A)=$
+
+$P(H)=$
+
+$P(A) \times P(H)=$
+
+$P(A \text{ and } H)=$
+
+
+
+:::
+</div>
+
+23. From the previous problem, are $A$ and $H$ independent events?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+24. Take a normal deck of playing cards and remove the 2 of spades (so now the deck only has 51 cards, 12 spades, and three 2's). Let $H = \{ \text{heart} \}$ be the event that the card drawn is a heart and $A = \{ \text{ace} \}$ be the event that the card drawn is an ace. Find the probability of each event:
+
+<div>
+:::{#answer}
+
+$P(A)=$
+
+$P(H)=$
+
+$P(A) \times P(H)=$
+
+$P(A \text{ and } H)=$
+
+
+
+:::
+</div>
+
+25. From the previous problem, are $A$ and $H$ independent events?
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+---
+
+
+
+
+
+
+
