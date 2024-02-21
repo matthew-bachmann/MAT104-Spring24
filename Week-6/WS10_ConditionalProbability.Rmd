@@ -1,0 +1,206 @@
+---
+title: "Worksheet 10 : Conditional Probability"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Venn Diagrams
+- Conditional Probability 
+- Tree diagrams
+- Law of Total Probability
+
+
+---
+
+
+## Venn Diagrams
+
+
+
+### Example: Suppose you flip a coin twice, draw a venn diagram representing the following events:
+
++ $A= \{ \text{Heads on first coin flip} \}$ 
++ $B= \{ \text{Tails on first coin flip} \}$ 
+
+
+Add another event:
+
++ $C = \{\text{Tails on second coin flip} \}$
+
+### Given that the first flip is tails, what is the probability that the second flip is also tails?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+## Conditional Probability
+
+
+
+$$P(A|B) = \frac{P(A \text{ and } B)}{P(B)}$$
+
+
+
+
+### Example: Of 100 people surveyed 43 men were right handed while 9 were left handed. 44 women were right handed while 4 were left handed. What is the probability that a person was left-handed given that they are male? Are the events $L = \{ \text{left handed} \}$ and $M= \{ \text{male} \}$ independent?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
+### Example: What is the probability that a card drawn from a deck is a jack if you know it is a heart? Are the events $J = \{ \text{jack} \}$ and $H = \{ \text{heart} \}$ independent?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+## Tree diagrams
+
+
+
+### Example: Recall the example from before where there are 5 marbles in a bag, two red, two green, and one blue. Draw a tree diagram representing the event of pulling two marbles from the bag.
+
+
+
+
+  
+### Example: You are buying a used car in city where rainfall causes street flooding often. You know that $5 \%$ of used cars have been damaged from flooding and $80 \%$ of those cars will later experience serious engine problems. On the other hand, only $10 \%$ of cars without flood damage will experience the same engine issues. What is the probability the car you buy will later experience engine issues?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+## The Law of Total Probability
+
+$$P( A \text{ and } B) + P( A \text{ and } B^c) = $$
+1. You have a box with two balls in it, one red and one blue. We select one ball from the box, put it back and select another.
+
++ Let’s say event $RR$ is the event where you get the red ball twice, what is $P(RR)$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Let’s say event $F$ is the event that you get the red ball on your first pull, what is $P(RR|F)$?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Are $RR$ and $F$ independent? Are $RR$ and $F$ disjoint?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Let $S$ be the event that you pull a red ball on the second pick. Are $S$ and $F$ independent? Are $S$ and $F$ disjoint?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+2. A swim team has $150$ members. On the team there are $75$ advanced swimmers, $47$ intermediate swimmers, and the rest are novice swimmers. Many swimmers practice $5$ days a week: $40$ of the advanced, $30$ intermediate, and $10$ novices.
+
++ What is the probability that a randomly chosen swimmer is a novice?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ What is the probability that a randomly chosen swimmer is advanced and practices $5$ days a week?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Are the events of practicing 5 days a week and being an advanced swimmer independent? Disjoint?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+3. On a given day the probability that I go to a coffee shop is $P(\text{CS}) = .2$, the probability that I play chess is $P( \text{Chess}) = .5$, and $P(\text{Chess}|\text{CS}) = .8$.
+
++ Find $P( \text{Chess and CS})$
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Find $P( \text{Chess or CS})$
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
