@@ -1,0 +1,150 @@
+---
+title: "Worksheet 11 : Bayes Theorem"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Law of Total Probability
+- Bayes Theorem
+
+
+---
+
+
+## Law of Total Probability
+
+$$ P(A \text{ and } B) + P(A \text{ and } B^c)$$
+
+### Example: Consider a game with the following three dice:
+
++ $A= \{ 1,1,5,5,5,5 \}$ 
++ $B= \{ 3,3,3,4,4,4 \}$ 
++ $C= \{ 2,2,2,2,6,6 \}$ 
+
++ Use the law of total probability to find the probability that $C$ beats $A$
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Find the probability that $A$ beats $B$
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Find the probability that $B$ beats $C$
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
++ Which is the best to choose?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
+## Bayes Theorem
+
+
+$$ P(B |A )  = \frac{ P(A|B) \cdot P(B)}{P(A|B) \cdot P(B) + P(A|B^c) \cdot P(B^c)}$$
+
+
+
+#### Example: Lupus is a medical phenomenon where antibiotics that are supposed to attack foreign cells to prevent infections instead see plasma proteins as foreign bodies, leading to a high risk of blood clotting. It is believed that 2% of the popularion suffer form this disease. The test is 98% accurate if a person actually has the disease. The test is 74% accurate if a person does not have the disease. There is a line from the TV show “House” where after a person tests positive for lupus the doctor says: “It’s never lupus”. Find the probability that someone has lupus given that they tested positive for lupus.
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
+
+1. The accuracy of the lie detector polygraph test is often questioned. Several reports say that a polygraph is about $95 \%$ accurate at determining if a person is telling a truth or a lie. Let's assume these reports are correct. Let's also assume that people are generally honest, so there is only a $1/1000$ chance they are lying. A randomly schosen person takes the test and is determined to be lying, what is the probability that they actually lied?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+2. After an intro to stats course $80 \%$ of students can successfully draw box plots. Of those students, $86 \%$ passed while only $65 \%$ of students that couldn’t draw box plots passed:
+
++ On a seperate sheet of paper draw a tree diagram representing this situation.
+
++ Calculate the probability that a student who passed can draw a box plot.
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+3. Suppose $0.1 \%$ of the population have a new covid variant and there is a test that is $96 \%$ accurate. Suppose you test positive, what is the probability you have it?
+
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+4. Suppose $80 \%$ of people like peanut butter, $89 \%$ like jelly and $78 \%$ like both. What’s the probability that a
+randomly sampled person who likes peanut butter will also like jelly?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
