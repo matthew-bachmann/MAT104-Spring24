@@ -1,0 +1,255 @@
+---
+title: "WS14-Review"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+1. Load the `tidyverse` and `openintro` packages. Save the `birds` data from `openintro` locally as `birds`. Look at the documentation for the birds data set. What years is the data from? What units are being used for speed?
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+2. Add a column to the `birds` data frame called `speed_mph` which gives the speed of the planes in miles per hour. ($1$ knot $= 1.15$ miles per hour)
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+3. For the following variables state whether they are categorical ordnial, categorical nominal, numerical discrete, or numerical continuous.
+
+<div>
+:::{#answer}
+
+atype – ANSWER HERE
+
+operator – ANSWER HERE
+
+ac_mass – ANSWER HERE
+
+num_engines – ANSWER HERE
+
+height – ANSWER HERE
+
+sky – ANSWER HERE 
+
+:::
+</div>
+
+4. Plot a scatter plot of plane speed vs. height, include color for the time of day that the collision occurred.
+
+```{r}
+# insert code here
+```
+
+5. What is the mean, median, IQR, variance, and standard deviation of the `speed_mph`?
+
+```{r}
+# insert code here
+```
+
+6. Make a new data frame called `aa` that only contains data points from the air carrier American Airlines.
+
+```{r}
+# insert code here
+```
+
+7. Is the average flight speed upon collision for American Airlines faster or slower than the average flight speed for all of the data?
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+8. Load the data `blizzard_salary` from the openintro package and make a box plot for the current salary of employees. Are there any outliers in the data? Just by looking at the boxplot, estimate the 25th percentile, the 75th percentile, and the IQR.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+9. Plot a histogram for `current_salary`. Is there any skew to the data?
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+10. Plot a density histogram for `flipper_length_mm` in the `penguins` data with a bin width of $20$. How many bins are there? Estimate the percentage of penguins with a flipper length less than $190$.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+11. How many penguins have a bill length greater than $43$ on the island of Torgersen?
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+12. What is the $Z$-score of a penguin with a bill length of $43$?
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+13. Describe a sample space for the following events:
+
++ a coin is flipped and a six-sided die is rolled
+
++ a coin is flipped till the first heads appears
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+14. Describe the probability distributions for the sample spaces from the previous exercise:
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+15. Events $A$ and $B$ are disjoint events. $P(A) = 0.26$; $P(B) = 0.37$. Find:
+
+<div>
+:::{#answer}
+P(A and B) = ANSWER HERE 
+
+P(A|B) = ANSWER HERE 
+
+P(A or B) = ANSWER HERE 
+
+:::
+</div>
+
+
+16. Roulette involves spinning a wheel with 38 slots, 18 are black, 18 are red, and 2 are green. Each round the wheel is spun and a ball is dropped on the spinning. Once the wheel is done spinning the ball will be in one of the slots, each slot is equally likely. (A) What is the probability of landing on red? (B) You've watched the game for ten rounds and it has landed on black every single time. What's the probability it will land on black on the next round? (C) What is the probability on landing on green twice in a row?
+
+<div>
+:::{#answer}
+ANSWER HERE
+:::
+</div>
+
+17. In a multiple choice exam, there are 5 questions and 4 choices for each question (a, b, c, d). Nancy has not studied for the exam at all and decides to randomly guess the answers. What is the probability that: (A) the first question she gets right is the 5th question? (B) she only gets one question right? (C) She gets all of the questions right? (D) she gets at least one question right?
+
+<div>
+:::{#answer}
+ANSWER HERE
+:::
+</div>
+
+18. A genetic test is used to determine if people have a predisposition for thrombosis, which is the formation of a blood clot inside a blood vessel that obstructs the flow of blood through the circulatory system. It is believed that $3 \%$ of people actually have this predisposition. The genetic test is $99 \%$ accurate if a person actually has the predisposition, meaning that the probability of a positive test result when a person actually has the predisposition is $0.99$. The test is $98 \%$ accurate if a person does not have the predisposition. What is the probability that a randomly selected person who tests positive for the predisposition by the test actually has the predisposition?
+
+<div>
+:::{#answer}
+ANSWER HERE
+:::
+</div>
+
+19. Write code to find the sum of all the multiples of $5$ ($0,5,10,15,$...) from $0$ to one million.
+
+```{r}
+# insert code here
+```
+
+20. Write code that will simulate rolling a fair six sided die 10 times.
+
+```{r}
+# insert code here
+```
+
+21. Write code that will simulate rolling two six sided fair die 10 times (hint: it could be helpful to include `replace=TRUE` somewhere in it).
+
+```{r}
+# insert code here
+```
+
+
+
+
+
+
+
