@@ -1,0 +1,155 @@
+---
+title: "Worksheet 12 : Midterm Wrap-Up"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(palmerpenguins)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Midterm Rules
+- Course Check-In
+
+---
+
+
+### Instructions
+
++ This is the take home midterm due on Saturday, March 2nd, at 9:00 pm.
+
++ There are 25 possible points on this assignment.
+
++ This midterm should take you 2-3 hours to complete. Do NOT exceed 6 hours of working on the exam. You may work on the exam at various points between now and the due date but the total time cannot exceed 6 hours. 
+
++ **Rules:**
+
+  - You are allowed to use any course materials on this midterm. This includes the course texts, previous worksheets, and previous labs.
+
+  - You should not be using google or any other website at any point during this exam. 
+  - If you are having trouble using `R` (graphing, for example), look through old worksheets and labs for example code. You will not be asked to do anything in `R` that you have not done before. 
+  - You are not permitted to speak with any one other than me about the midterm till after the due date. (Even if you finish early, don't talk to your class mates about it since they might not be finished).
+  - Please attempt the exam early so that we can fix any knitting issues before the due date. Your midterm will not be accepted if it does not knit.
+
++ Answer `R` questions by writing code where you are asked to `## insert code here`
++ Answer written questions in the space provided where it says "Write your answer here".
++ All answers have a code chunk section but you may not always need to use the code chunks. 
++ **Written answers need to be in complete sentences.**
++ **You need to show your work or `R` code for any calculations.**
+
+
+### Don't's 
+
+1. This is problem number one: (A.) it has two parts (B.) this is the second part about course terminology.
+
+
+<div>
+:::{#answer}
+
+(A.) answer here
+
+(B.) answer here
+
+:::
+</div>
+
+2. Find the mean flipper length of the palmer penguin data.
+
+```{r}
+
+```
+
+
+## Mid-Semester check in
+
+Answer the following questions over spring break:
+
+3. How long did the midterm take you?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+4. How many hours a week do you spend on this course outside of class?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+5. How often do you conslut the course texts if you are confused about the course topics?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+6. Which course components/aspects have been most useful to your learning?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+7. Which course components/aspects have been least useful to your learning?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+8. Not many people utilize offic hours. Please select the option that most accurately describes your situation:
+
++ I do attend office hours when I have questions
++ I feel comfortable enough with the material such that I do not need to attend office hours very often
++ Office hours are not at times that I can attend
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+9. Is there anything else you would like to share about your experience in the course so far?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
