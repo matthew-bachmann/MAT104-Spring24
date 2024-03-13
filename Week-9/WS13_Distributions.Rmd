@@ -1,0 +1,135 @@
+---
+title: "Worksheet 13 : Distributions"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+set.seed(123)
+```
+
+---
+  
+## Today's Agenda
+- Review of distributions
+- Normal Distribution
+
+
+---
+
+
+## Review of Distributions
+
+### Probability Distribution
+
+
+#### Example
+
+1. What is the probability that it is $70.4$ degrees tomorrow at $1$ pm?
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+We express continuous distributions with a line instead of of a bar graph:
+
+```{r}
+temps <- data.frame(temp = c(65,75,85))
+ggplot(temps,aes(x=temp))+ stat_function(fun=dnorm, args = c(75,4))
+```
+
+
+### Population Distribution
+
+
+#### Example
+
+A manufacturer advertises that their ketchup bottles hold $12.4$ ounces of ketchup. The company standards allow for ketchup bottles to be anywhere between $12.3$ and $12.5$ ounces, but if the bottle falls outside that range it is flagged by quality control. Below is a population distribution for $100,000$ bottles of ketchup produced:
+
+```{r}
+ketchup <- data.frame(error = rnorm(100000,0,.1))
+ggplot(ketchup, aes(x=error))+ geom_histogram(binwidth =.2,aes(y=after_stat(density))) + scale_x_continuous(breaks=seq(-.5,.5,.1))
+```
+
+2. Approximately what percentage of ketchup bottles are within an acceptable range?
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+
+
+## The Normal Distribution
+
++ One of the most important distributions in statistics is the normal distribution.
++ The normal distribution is defined by the function: 
+
+$$ \frac{1}{\sigma \sqrt{2 \pi}}e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma} \right)^2} $$
+
++ where $\sigma$ is the standard deviation and $\mu$ is the mean.
+
+
+
+### Properties of the normal distribution
+
+
++ the **standard** normal distribution has mean $0$ and standard deviation $1$:
+
+```{r}
+std <- data.frame(axis = seq(-3,3,1))
+ggplot(std,aes(x=axis))+ stat_function(fun=dnorm, args = c(0,1)) + labs(x="Standard Normal Curve N(0,1)")
+```
+
+
+<center>
+<img src="./normal.png" width="650"/>
+</center>
+
+
+3. What percentage of data is below $-1$ on the standard normal curve?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+4. What percentage of data is greater than $1.5$ on the standard normal curve?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+5. What percentage of data is between $.5$ and $1.25$ on the standard normal curve?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
