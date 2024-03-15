@@ -1,0 +1,182 @@
+---
+title: "Worksheet 14 : Central Limit Theorem"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- More Normal Distribution
+- Video
+- Central Limit Theorem
+
+
+---
+
+
+## More Normal Distribution
+
+### Review
+
++ The standard normal curve has mean $\mu =0$ and standard deviation $\sigma=1$.
++ We denote the standard normal curve $N(0,1)$.
++ To find the percentage of data in a region for $N(0,1)$ we use the function `pnorm()`.
+
+For example,
+
+```{r}
+# to find the percentage of data less than -.5 on the standard normal curve we do
+
+
+# to find the percentage of data greater than 1.7 on the standard normal curve we do
+
+
+# to find the percentage of data between 1.7 and and -.5 we would do
+
+
+```
+
+### Comparing Normal Distributions
+
+
+
+Consider the normal distribution $N(1000,200)$ graphed below:
+
+```{r}
+std <- data.frame(axis = seq(400,1600,10))
+ggplot(std,aes(x=axis))+ stat_function(fun=dnorm, args = c(1000,200)) + labs(x="Normal Curve N(1000,200)")
+```
+
+Assuming perfectly normally distributed data, answer the following questions
+
+1. What percentage of data is less than $800$?
+
+```{r}
+
+```
+
+2. What percentage of data is greater than $1200$?
+
+```{r}
+
+```
+
+3. What percentage of data is between $1200$ and $800$?
+
+```{r}
+
+```
+
+4. What percentage of data is between $1400$ and $600$?
+
+```{r}
+
+```
+
+5. What percentage of data is between $1600$ and $400$?
+
+```{r}
+
+```
+
+
+
+
+
+```{r}
+# Below are some points on the curve N(1000,200)
+
+x <- seq(400,1600,10)
+y <- dnorm(x,1000,200)
+std_1000_200 <- data.frame(x,y)
+ggplot(std_1000_200,aes(x=x, y=y))+ geom_point() + labs(title= expression(paste("Points on ", N(mu == 1000, sigma == 200))))
+```
+
+```{r}
+# let's convert all of the points to their Z-scores and graph that
+
+```
+
+
+
+### Other norm functions
+
++ `pnorm(x,mu,sigma)` finds the **p**ercentage of data less than $x$ on a normal curve $N(\mu,\sigma)$
++ `rnorm(x,mu,sigma)` produces $x$ many **r**andom data points from the curve $N(\mu,\sigma)$
+
+```{r}
+
+```
+
++ `dnorm(x,mu,sigma)` tells you the **d**ensity of the data point $x$ on the curve $N(\mu,\sigma)$
+
+```{r}
+
+```
+
++ `qnorm(x,mu,sigma)` outputs the data point at the $x$th **q**uantile on the curve $N(\mu,\sigma)$
+
+```{r}
+
+```
+
+## Central Limit Theorem
+
+
+
+### Video
+
+https://www.youtube.com/watch?v=zeJD6dqJ5lo
+
+
+
+6. Given a normal distributed population with mean $5$ and standard deviation $1.2$, what is the $80$th percentile?
+
+```{r}
+# insert code here
+```
+
+7. Given a normal distributed population with mean $5$ and standard deviation $1.2$, find the interquartile range.
+
+```{r}
+# insert code here
+```
+
+8. Given a normal distributed population with mean $5$ and standard deviation $1.2$, give a range of values that contains $95 \%$ of the population.
+
+```{r}
+# insert code here
+```
+
+
+9. Produce $100$ random normally distributed points on the curve $N(15,3)$?
+
+```{r}
+
+```
+
+10. What percentage of data is between $.5$ and $1.25$ on the standard normal curve?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
