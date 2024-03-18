@@ -1,0 +1,319 @@
+---
+title: "Lab 8 - The Central Limit Theorem"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(openintro)
+library(tidyverse)
+set.seed(123)
+```
+
+## Instructions
+
+In this lab, you will investigate some data in order to observe the central limit theorem in action. 
+
+### How to **complete** this assignment.
+
+* Attempt each exercise in order.
+
+* Please follow the Davidson Honor Code and rules from the course syllabus regarding seeking help with this assignment.
+
+* This assignment is <font color="darkred">**due Friday, March 22, no later than 5:00 pm Eastern**</font>. Late submissions are not accepted without prior approval. 
+
+---
+
+## Introduction
+
+The central limit theorem says that for a possibly unkown population distribution, the sampling distribution of the sample mean approaches a normal distribution as the sample size increases.
+
+That sentence contains a lot of statistical jargon which makes it hard to digest (even though we've defined all the words). Let's rephrase the sentence step by step:
+
++ From any population we can take a sample and find the sample mean.
++ The sample mean may or may not be close to the population mean.
++ So, we can repeatedly take samples of the same size and find the sample mean each time.
++ Recording the sample mean each time gives us the sampling distribution for the sample mean.
++ If our sample size is large enough, the sampling distribution of the sample means looks like a normal distribution.
+
+Since the sampling distribution looks like a normal distrbution, we would like to know *which* normal distribution?
+
+##### **Exercise 1. The code below will simulate some data called `pop_data`. This data will be the population in our experiment. Find the mean and standard deviation of the population and save them locally as `pop_mean` and `pop_sd`.**
+
+```{r}
+pop_data <- data.frame(data_point = rgamma(100000,2))
+```
+
+```{r}
+# insert code here
+```
+
+
+Now that we are beginning to do some more inferrential statistics, there are lots of means and standard deviations floating around that are related but not equal. The **population** mean and standard deviation are usually denoted by $\mu$ and $\sigma$.
+
+##### **Exercise 2. Record the population mean and standard deviation found in the first exercise below:**
+
+<div>
+:::{#answer}
+
+The population mean is:
+$$ \mu = $$
+
+The population standard deviation is:
+$$ \sigma = $$
+
+:::
+</div>
+
+##### **Exercise 3. Plot a DENSITY histogram for the population data using a bin width of $.1$. Add a vertical line to indicate the population mean. Describe the shape of the population distribution.**
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+The population distribution is clearly **NOT** normal. The central limit theorem says that if we repeatedly sample from this population (with a big enough sample size), the distribution of the sample means **WILL** look normal.
+
+---
+
+## A random sample of 9 observations
+
+##### **Exercise 4. Take a sample of size $9$ from the population data and save the sample as `sample_9`. Find the mean and standard deviation of the sample and save them as `mean_sample_9` and `sd_sample_9`.**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+Notice that these values are **sample statistics** which different than the **population** mean and standard deviation we found before. The **sample mean** is usually denoted by $\bar{X}$ and the **sample standard deviation** is usually denoted by $s$.
+
+##### **Exercise 5. Record the sample mean and standard deviation found in the previous exercise below:**
+
+<div>
+:::{#answer}
+
+The sample mean is:
+$$ \bar{X} = $$
+
+The sample standard deviation is:
+$$ s = $$
+
+:::
+</div>
+
+---
+
+## Sampling Distribution for the sample mean
+
+The code below will replicate finding the sample mean from the population $1000$ times:
+
+```{r}
+sampling_dist_9 <- data.frame(sample_mean = replicate(1000,mean(sample(pop_data$data_point,9))))
+```
+
+
+##### **Exercise 6. Plot a DENSITY histogram for sampling distribution of the sample mean with a bin width of $.05$. Add a red vertical line for the population mean. Add a blue vertical line for the sample mean you found in exercise 4. Describe the shape of the distribution.**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div> 
+
+##### **Exercise 7. Find the mean and standard deviation of the sampling distribution and save them as `sampling_dist_mean_9` and `sampling_dist_sd_9`.**
+
+```{r}
+#insert code here
+```
+
+##### **Exercise 8. Copy the code for your plot from exercise 6 below. We will add a normal curve to the plot using the `sampling_dist_mean_9` and `sampling_dist_sd_9`. To do this, include the following code at the end of your previous code `+ stat_function(fun = dnorm, args = c(mean,sd))` but you need to replace `mean` and `sd` with the mean and standard deviation of the sampling distribution.**
+
+```{r}
+#insert code here
+```
+
+There are now **THREE** different means and standard deviations associated to the problem floating around. The three are:
+
++ for the population
++ for the sample
++ for the sampling distribution
+
+The mean of the sampling distribution tries to estimate the population mean. The central limit theorem says that if you take a big enough sample size, the mean of the sampling distribution will approach the population mean. Since the mean of the sample means is supposed to be equal to the population mean, we don't give it a new name.
+
+The standard deviation of the sample means is a different story though. The standard deviation of the sample means shows how spread out the **error** is when estimating the population mean using a sample mean. Therefore, the standard deviation of the sample mean is called the **standard error** or **SE**. Since it is the standard error for the mean, some people, including the course textbook will write **SEM** for standard error of the mean. Either is fine for us.
+
+##### **Exercise 9. Record the standard deviation of the sampling distribution found in a previous exercise below:**
+
+<div>
+:::{#answer}
+
+The standard error for the mean is:
+$$ SE = $$
+
+:::
+</div>
+
+##### **Exercise 10. We now want to see how different the standard error is compared to the population standard deviation. To measure how different they are, let's find the ratio between the two. Divide the population standard deviation by the standard error and write your conclusion in a sentence. (ie. "the population standard deviation is X times bigger/smaller than the standard error")**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+We will continue to investigate the size of the standard error later in the lab. For now, let's turn our attention to the sampling distribution. First, let's summarize what we know so far:
+
+---
+
+## Central Limit Theorem
+
+The Central Limit Theorem says that as the sample size increases, the sampling distribution of the sample mean will approach a normal distribution:
+
+$$N(\mu,SE)$$
+
+centered at the population mean $\mu$ with a standard deviation equal to the standard error.
+
+---
+
+Since the sampling distribution is approximately normal, we can use functions like `pnorm` and `qnorm` for the sampling distribution.
+
+##### **Exercise 11. How many standard errors away from the mean is the sample statistic `mean_sample_9`. **
+
+```{r}
+# insert code here
+```
+
+##### **Exercise 12. Use `pnorm()` to determine what percentage of sample means are larger than `mean_sample_9`.**
+
+```{r}
+# insert code here
+```
+
+##### **Exercise 13. Use `qnorm()` to find the $2.5$ percentile and the $97.5$ percentile from the sampling distribution. What is the probability that a sample of size $9$ will have a mean between these two values?**
+
+```{r}
+# insert code here
+```
+
+##### **Exercise 14. Is `mean_sample_9` inside the range found in exercise 13?**
+
+```{r}
+# insert code here
+```
+
+---
+
+## A bigger simulation
+
+##### **Exercise 15. Create a new sampling distribution from the same population using a sample size of $100$ instead of $9$. Call the new sampling distribution `sampling_dist_100`. Find the standard error.**
+
+```{r}
+# insert code here
+```
+
+##### **Exercise 16. Plot a DENSITY histogram for sampling distribution of the sample mean with a bin width of $.05$. Add a red vertical line for the population mean. Add the normal curve $N(\mu,SE)$ to the graph.**
+
+```{r}
+# insert code here
+```
+
+##### **Exercise 17. We now want to further investigate the relationship between the standard error and the population standard deviation. Let's again find the ratio between the two. Divide the population standard deviation by the standard error and write your conclusion in a sentence. (ie. "the population standard deviation is X times bigger/smaller than the standard error")**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+## Standard Error
+
+You may have noticed that the sample size affects how much bigger the population standard deviation is compared to the standard error. In fact, this is true in general thanks to the central limit theorem. The standard error is the population standard deviation divided by the square root of the sample size:
+
+$$ SEM = \frac{\sigma}{\sqrt{n}}$$
+
+We can now say more about the central limit theorem:
+
+The Central Limit Theorem says that as the sample size $n$ increases, the sampling distribution of the sample mean will approach a normal distribution:
+
+$$N(\mu,\frac{\sigma}{\sqrt{n}})$$
+
+centered at the population mean $\mu$ with a standard error equal to the population standard deviation $\sigma$ divided the square root of the sample size.
+
+##### **Exercise 18. A population has mean $\mu = 143$ and standard deviation $\sigma = 15$. Describe the sampling distribution for a sample of size $150$.**
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+##### **Exercise 19. A population has mean $\mu = 22$ and standard deviation $\sigma = 1.4$. What is the mean standard error if the sample size is $50$. How many mean standard errors away from the population mean is a sample mean of $\bar{X} = 23$?**
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+##### **Exercise 20. A population has mean $\mu = 22$ and standard deviation $\sigma = 1.4$. You plan to take a sample of $50$ observations. Find a the $2.5$ percentile and the $97.5$ percentile of the sampling distribution for the sample mean.**
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
