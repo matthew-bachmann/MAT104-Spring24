@@ -47,7 +47,7 @@ $$ \bar{X} \sim N \left(\mu, \frac{\sigma}{\sqrt{n}} \right)$$
 :::{#answer}
 
 <center>
-<img src="./place_holder.JPG" width="650"/>
+<img src="./place_holder.JPG" width="450"/>
 </center>
 
 :::
