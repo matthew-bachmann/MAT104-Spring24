@@ -1,0 +1,104 @@
+---
+title: "Worksheet 15 : Confidence Intervals"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Central Limit Theorem
+- Including Pictures
+- Confidence Intervals 
+
+
+---
+
+
+## Central Limit Theorem
+
+### Review from lab
+
+
+
+$$ \bar{X} \sim N \left(\mu, \frac{\sigma}{\sqrt{n}} \right)$$
+
+
+## Including Pictures
+
+1. Include a picture of the sampling distribution below:
+
+<div>
+:::{#answer}
+
+<center>
+<img src="./place_holder.JPG" width="650"/>
+</center>
+
+:::
+</div>
+
+
+2. Find the exact $z$-scores corresponding to a confidence level of $68 \%$.
+
+```{r}
+
+```
+
+
+### Example 
+
+Below is the situation for a $75 \% confidence level:
+
+
+
+
+3. Draw a picture that represents the sampling distribution for the sample mean with a $90 %$ confidence level.
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+4. What is $\alpha$ for a $90 \% confidence level?
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+5. What is the exact $z$-score needed for a $90 \%$ confidence level?
+
+```{r}
+
+```
+
+6. Express a range of values such that there is a $90 \%$ probability the sample mean will land in that range.
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+
