@@ -1,0 +1,154 @@
+---
+title: "Worksheet 16 : Confidence Intervals II"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Review from last class
+- Confidence Intervals
+- Interpreting Confidence Intervals
+- Assumptions for Central Limit Theorem 
+
+
+---
+
+
+## Review from last class
+
+Since the central limit theorem says that as we increase the sample size $n$ the sampling distribution for the sample mean is:
+
+$$ \bar{X} \sim N(\mu, SE) $$
+
+where the standard error is $\frac{\sigma}{\sqrt{n}}$. We can use this to find a confidence level for sample means.
+
+The range of values such that a random sample of size $n$ with sample mean $\bar{X}$ is within this range $P \%$ of the time is given by:
+
+$$ \mu - z_{\alpha/2} \cdot SE \leq \bar{X} \leq \mu + z_{\alpha/2} \cdot SE$$
+
+where $z_{\alpha/2}$ is the critical $Z$-score corresponding to the desired percentage $P \%$.
+
+#### Example 
+
+Suppose a population has mean $15$ and standard deviation $2.5$. Find a range of values such that a random sample of $100$ observations will fall within the range with a $95 \%$ probability.
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# Step 1: Write down the known quantities
+
+# Step 2: Draw a picture of the sampling distribution, title the graph N(\mu,SE)
+
+# Step 3: Find the critical Z-scores
+
+# Step 4: Calculate the interval 
+
+# Step 5: Write your conclusion in a complete sentence
+
+```
+
+## Confidence Interval
+
+
+$$ \mu - z_{\alpha/2} \cdot SE \leq \bar{X} \leq \mu + z_{\alpha/2} \cdot SE$$
+
+ 
+
+#### Example
+
+Suppose that an unknown population has standard deviation $\sigma = 34$. A sample of $450$ observations has a sample mean $\bar{X}= 62$. Find a $95 \%$ confidence interval.
+
+```{r}
+# Step 1: Write down the known quantities
+
+# Step 2: Find the critical $Z$-scores
+
+# Step 3: Calculate the interval
+
+# Step 4: Write your conclusion in a complete sentence
+
+```
+
+## Interpreting confidence intervals
+
+In the last example we found that "we are $95 \%$ confident that the true population mean is between $58.859$ to $65.14$. 
+
+
+
+
+1. What are the critical $Z$-scores corresponding to a confidence level of $70 \%$. 
+
+```{r}
+
+```
+
+2. Suppose average pizza delivery times are normally distributed with an unknown population mean and a population standard deviation of six minutes. A random sample of $28$ pizza delivery restaurants is taken and has a sample mean delivery time of $36$ minutes. Find a $90 \%$ confidence interval for the population mean delivery time (use the steps from the example).
+
+```{r}
+# Step 1: Write down the known quantities
+
+# Step 2: Find the critical $Z$-scores
+
+# Step 3: Calculate the interval
+
+# Step 4: Write your conclusion in a complete sentence
+
+```
+
+
+
+
+3. From a population with population mean $16$ and standard deviation $2$ a sample of $35$ observations is taken. Provide an interval such that there is an $80 \%$ chance that the sample mean falls within the range.
+
+```{r}
+# Step 1: Write down the known quantities
+
+# Step 2: Draw a picture of the sampling distribution, title the graph N(\mu,SE)
+
+# Step 3: Find the critical Z-scores
+
+# Step 4: Calculate the interval 
+
+# Step 5: Write your conclusion in a complete sentence
+
+```
+
+
+
+
+4. Suppose scores on exams in statistics are normally distributed with an unknown population mean and a population standard deviation of $3$ points. A random sample of $36$ scores is taken with an mean score of $72$. Find a $98 \%$ confidence interval for the mean exam score of the population.
+
+```{r}
+# Step 1: Write down the known quantities
+
+# Step 2: Find the critical $Z$-scores
+
+# Step 3: Calculate the interval
+
+# Step 4: Write your conclusion in a complete sentence
+
+```
+
+
+
+
+
