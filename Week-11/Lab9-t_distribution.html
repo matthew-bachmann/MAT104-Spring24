@@ -12,7 +12,7 @@
 <meta name="author" content="Student 1 Name, Student 2 Name" />
 
 
-<title>Lab 6 - t-Distribution</title>
+<title>Lab 9 - t-Distribution</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -451,7 +451,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Lab 6 - t-Distribution</h1>
+<h1 class="title toc-ignore">Lab 9 - t-Distribution</h1>
 <h4 class="author">Student 1 Name, Student 2 Name</h4>
 
 </div>
@@ -482,14 +482,17 @@ is inside a confidence interval.</p>
 </ol>
 <pre class="r"><code>#insert code here</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Test the function using a sample of <span class="math inline">\(10\)</span> heights from the <code>yrbss</code>
+<li>Test the function using a sample of <span class="math inline">\(5\)</span> heights from the <code>yrbss</code>
 data. Make sure to remove NA’s first:</li>
 </ol>
 <pre class="r"><code>#insert code here</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Replicate the function <span class="math inline">\(1000\)</span>
-times and use <code>table()</code> to determine the percentage of
-confidence intervals that contain the population mean</li>
+<li>Replicate the function <span class="math inline">\(10000\)</span>
+times and save the result in a <code>data.frame()</code> called
+<code>outcomes_pop_sd</code> with a column called
+<code>contains_mu</code>. Then use <code>table()</code> to determine the
+percentage of confidence intervals that contain the population
+mean.</li>
 </ol>
 <pre class="r"><code>#insert code here</code></pre>
 <div>
@@ -519,14 +522,17 @@ instead of the population standard deviation.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Test the function using a sample of <span class="math inline">\(10\)</span> heights from the <code>yrbss</code>
+<li>Test the function using a sample of <span class="math inline">\(5\)</span> heights from the <code>yrbss</code>
 data.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>Replicate the function <span class="math inline">\(1000\)</span>
-times and use <code>table()</code> to determine the percentage of
-confidence intervals that contain the population mean.</li>
+<li>Replicate the function <span class="math inline">\(10000\)</span>
+times and save the result in a <code>data.frame()</code> called
+<code>outcomes_sample_sd</code> with a column called
+<code>contains_mu</code>. Then use <code>table()</code> to determine the
+percentage of confidence intervals that contain the population
+mean.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <div>
@@ -561,47 +567,51 @@ standard deviation as <code>pop_sd</code>.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="10" style="list-style-type: decimal">
-<li>In one line of code, take a sample of size <span class="math inline">\(10\)</span> from the heights data and find how
-many standard errors away from the population mean it is using the
-formula for <span class="math inline">\(z\)</span>-scores:</li>
+<li>In one line of code, take a sample of size <span class="math inline">\(5\)</span> from the heights data and find how many
+standard errors away from the population mean it is using the formula
+for <span class="math inline">\(z\)</span>-scores:</li>
 </ol>
 <p><span class="math display">\[ \frac{\bar{X}-\mu}{
 \frac{\sigma}{\sqrt{n}}}\]</span></p>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="11" style="list-style-type: decimal">
-<li>Replicate this <span class="math inline">\(1000\)</span> times to
-find <span class="math inline">\(1000\)</span> <span class="math inline">\(z\)</span>-scores and save the results as a
+<li>Replicate this <span class="math inline">\(10000\)</span> times to
+find <span class="math inline">\(10000\)</span> <span class="math inline">\(z\)</span>-scores and save the results as a
 <code>data.frame()</code> named <code>z_scores</code> and a column named
 <code>observation</code>.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="12" style="list-style-type: decimal">
-<li>Plot the <span class="math inline">\(z\)</span>-scores in a
+<li>Plot the <span class="math inline">\(z\)</span>-scores in a density
 histogram using a bin width of <span class="math inline">\(.25\)</span>
 and add a normal curve to the graph with mean <span class="math inline">\(0\)</span> and standard deviation <span class="math inline">\(1\)</span>.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <hr />
-<p>Now we will do the same steps, but istead of computing <span class="math inline">\(z\)</span>-scores we will compute <span class="math inline">\(t\)</span>-scores. The difference between the two
+<p>Now we will do the same steps, but instead of computing <span class="math inline">\(z\)</span>-scores we will compute <span class="math inline">\(t\)</span>-scores. The difference between the two
 is that the <span class="math inline">\(t\)</span>-score uses the sample
 standard deviation.</p>
 <ol start="13" style="list-style-type: decimal">
-<li>In one line of code, take a sample of size <span class="math inline">\(10\)</span> from the heights data and find how
-many standard errors away from the population mean it is using the
-formula for <span class="math inline">\(t\)</span>-scores:</li>
+<li>Below is a function that will calculate the <span class="math inline">\(t\)</span>-score of a sample. Change FALSE to TRUE
+and run the code.</li>
 </ol>
 <p><span class="math display">\[ \frac{\bar{X}-\mu}{
 \frac{s}{\sqrt{n}}}\]</span></p>
-<pre class="r"><code># insert code here</code></pre>
+<pre class="r"><code>t_score &lt;- function(data,sample_size){
+      pop_mean &lt;- mean(data)
+      sample &lt;- sample(data,sample_size)
+      sample_mean &lt;- mean(sample)
+      se &lt;- sd(sample)/sqrt(sample_size)
+      (sample_mean-pop_mean)/se
+}</code></pre>
 <ol start="14" style="list-style-type: decimal">
-<li>Replicate this <span class="math inline">\(1000\)</span> times to
-find <span class="math inline">\(1000\)</span> <span class="math inline">\(t\)</span>-scores and save the results as a
+<li>Replicate the <code>t_score</code> function <span class="math inline">\(10000\)</span> times to find <span class="math inline">\(10000\)</span> <span class="math inline">\(t\)</span>-scores and save the results as a
 <code>data.frame()</code> named <code>t_scores</code> and a column named
 <code>observation</code>.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="15" style="list-style-type: decimal">
-<li>Plot the <span class="math inline">\(t\)</span>-scores in a
+<li>Plot the <span class="math inline">\(t\)</span>-scores in a density
 histogram using a bin width of <span class="math inline">\(.25\)</span>
 and add a normal curve to the graph with mean <span class="math inline">\(0\)</span> and standard deviation <span class="math inline">\(1\)</span>.</li>
 </ol>
@@ -631,7 +641,7 @@ parameter called the degrees of freedom. When we are building confidence
 intervals for population means using sample means, we use the
 distribution with degrees of freedom <span class="math inline">\(=n-1\)</span> where <span class="math inline">\(n\)</span> is the sample size.</p>
 <ol start="17" style="list-style-type: decimal">
-<li>Take a sample of size <span class="math inline">\(10\)</span> from
+<li>Take a sample of size <span class="math inline">\(5\)</span> from
 the heights data. Find the mean and standard deviation of your sample
 and save them as <code>sample_mean</code> and <code>sample_sd</code>.
 Just like in the central limit theorem, we find the standard error by
@@ -646,14 +656,16 @@ confidence interval corresponds to critical <span class="math inline">\(z\)</spa
 <code>qnorm(.025)</code> and <code>qnorm(.975)</code>. We can find the
 critical scores for the <span class="math inline">\(t\)</span>-distribution similarly using the code
 <code>qt()</code>:</p>
-<pre class="r"><code>qt(.025,9)</code></pre>
-<pre><code>## [1] -2.262157</code></pre>
-<pre class="r"><code>qt(.975,9)</code></pre>
-<pre><code>## [1] 2.262157</code></pre>
-<p>The <span class="math inline">\(9\)</span> in the code is because we
-are taking samples of size <span class="math inline">\(10\)</span> and
-so we use the <span class="math inline">\(t\)</span>-distribution
-defined by degrees of freedom <span class="math inline">\(=10-1\)</span>. So, in the <span class="math inline">\(t\)</span>-distribution for <span class="math inline">\(9\)</span> degrees of freedom <span class="math inline">\(95 \%\)</span> of the data is between <span class="math inline">\(-2.26\)</span> and <span class="math inline">\(2.26\)</span> standard errors from the center.</p>
+<pre class="r"><code>qt(.025,4)</code></pre>
+<pre><code>## [1] -2.776445</code></pre>
+<pre class="r"><code>qt(.975,4)</code></pre>
+<pre><code>## [1] 2.776445</code></pre>
+<p>The <span class="math inline">\(4\)</span> in the code is because we
+are taking samples of size <span class="math inline">\(5\)</span> and so
+we use the <span class="math inline">\(t\)</span>-distribution defined
+by degrees of freedom <span class="math inline">\(=5-1\)</span>. So, in
+the <span class="math inline">\(t\)</span>-distribution for <span class="math inline">\(4\)</span> degrees of freedom <span class="math inline">\(95 \%\)</span> of the data is between <span class="math inline">\(-2.776\)</span> and <span class="math inline">\(2.776\)</span> standard errors from the
+center.</p>
 <p>We then multiply these by the standard error and add them to the
 sample mean to find a <span class="math inline">\(95 \%\)</span>
 confidence interval. Run the following code and change FALSE to
@@ -677,12 +689,12 @@ calculates confidence intervals using the sample standard deviation and
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="20" style="list-style-type: decimal">
-<li>Test the function using a sample of <span class="math inline">\(10\)</span> heights from the <code>yrbss</code>
+<li>Test the function using a sample of <span class="math inline">\(5\)</span> heights from the <code>yrbss</code>
 data.</li>
 </ol>
 <pre class="r"><code># insert code here</code></pre>
 <ol start="21" style="list-style-type: decimal">
-<li>Replicate the function <span class="math inline">\(1000\)</span>
+<li>Replicate the function <span class="math inline">\(10000\)</span>
 times and use <code>table()</code> to determine the percentage of
 confidence intervals that contain the population mean.</li>
 </ol>

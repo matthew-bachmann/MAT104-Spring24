@@ -1,5 +1,5 @@
 ---
-title: "Lab 6 - t-Distribution"
+title: "Lab 9 - t-Distribution"
 author: Student 1 Name, Student 2 Name
 output:
   html_document:
@@ -45,14 +45,14 @@ First, we will write a function that will check if a population mean is inside a
 #insert code here
 ```
 
-2. Test the function using a sample of $10$ heights from the `yrbss` data. Make sure to remove NA's first:
+2. Test the function using a sample of $5$ heights from the `yrbss` data. Make sure to remove NA's first:
 
 ```{r}
 #insert code here
 ```
 
 
-3. Replicate the function $1000$ times and use `table()` to determine the percentage of confidence intervals that contain the population mean
+3. Replicate the function $10000$ times and save the result in a `data.frame()` called `outcomes_pop_sd` with a column called `contains_mu`. Then use `table()` to determine the percentage of confidence intervals that contain the population mean.
 
 ```{r}
 #insert code here
@@ -81,13 +81,13 @@ Of course, in practice, we don't usually know the population standard deviation.
 # insert code here
 ```
 
-6. Test the function using a sample of $10$ heights from the `yrbss` data.
+6. Test the function using a sample of $5$ heights from the `yrbss` data.
 
 ```{r}
 # insert code here
 ```
 
-7. Replicate the function $1000$ times and use `table()` to determine the percentage of confidence intervals that contain the population mean.
+7. Replicate the function $10000$ times and save the result in a `data.frame()` called `outcomes_sample_sd` with a column called `contains_mu`. Then use `table()` to determine the percentage of confidence intervals that contain the population mean.
 
 ```{r}
 # insert code here
@@ -128,7 +128,7 @@ Let's try to see what is going on here by looking at $z$-scores:
 # insert code here
 ```
 
-10. In one line of code, take a sample of size $10$ from the heights data and find how many standard errors away from the population mean it is using the formula for $z$-scores: 
+10. In one line of code, take a sample of size $5$ from the heights data and find how many standard errors away from the population mean it is using the formula for $z$-scores: 
 
 $$ \frac{\bar{X}-\mu}{ \frac{\sigma}{\sqrt{n}}}$$
 
@@ -136,13 +136,13 @@ $$ \frac{\bar{X}-\mu}{ \frac{\sigma}{\sqrt{n}}}$$
 # insert code here
 ```
 
-11. Replicate this $1000$ times to find $1000$ $z$-scores and save the results as a `data.frame()` named `z_scores` and a column named `observation`.
+11. Replicate this $10000$ times to find $10000$ $z$-scores and save the results as a `data.frame()` named `z_scores` and a column named `observation`.
 
 ```{r}
 # insert code here
 ```
 
-12. Plot the $z$-scores in a histogram using a bin width of $.25$ and add a normal curve to the graph with mean $0$ and standard deviation $1$.
+12. Plot the $z$-scores in a density histogram using a bin width of $.25$ and add a normal curve to the graph with mean $0$ and standard deviation $1$.
 
 ```{r}
 # insert code here
@@ -150,23 +150,29 @@ $$ \frac{\bar{X}-\mu}{ \frac{\sigma}{\sqrt{n}}}$$
 
 ---
 
-Now we will do the same steps, but istead of computing $z$-scores we will compute $t$-scores. The difference between the two is that the $t$-score uses the sample standard deviation.
+Now we will do the same steps, but instead of computing $z$-scores we will compute $t$-scores. The difference between the two is that the $t$-score uses the sample standard deviation. 
 
-13. In one line of code, take a sample of size $10$ from the heights data and find how many standard errors away from the population mean it is using the formula for $t$-scores: 
+13. Below is a function that will calculate the $t$-score of a sample. Change FALSE to TRUE and run the code. 
 
 $$ \frac{\bar{X}-\mu}{ \frac{s}{\sqrt{n}}}$$
 
+```{r, eval=FALSE}
+t_score <- function(data,sample_size){
+      pop_mean <- mean(data)
+      sample <- sample(data,sample_size)
+      sample_mean <- mean(sample)
+      se <- sd(sample)/sqrt(sample_size)
+      (sample_mean-pop_mean)/se
+}
+```
+
+14. Replicate the `t_score` function $10000$ times to find $10000$ $t$-scores and save the results as a `data.frame()` named `t_scores` and a column named `observation`.
+
 ```{r}
 # insert code here
 ```
 
-14. Replicate this $1000$ times to find $1000$ $t$-scores and save the results as a `data.frame()` named `t_scores` and a column named `observation`.
-
-```{r}
-# insert code here
-```
-
-15. Plot the $t$-scores in a histogram using a bin width of $.25$ and add a normal curve to the graph with mean $0$ and standard deviation $1$.
+15. Plot the $t$-scores in a density histogram using a bin width of $.25$ and add a normal curve to the graph with mean $0$ and standard deviation $1$.
 
 ```{r}
 # insert code here
@@ -189,7 +195,7 @@ This blue curve is the Student's $t$-distribution. We will learn more about it i
 
 Unlike the normal distribution, which is defined by the mean and standard deviation, the Student's $t$-distribution is defined by only one parameter called the degrees of freedom. When we are building confidence intervals for population means using sample means, we use the distribution with degrees of freedom $=n-1$ where $n$ is the sample size. 
 
-17. Take a sample of size $10$ from the heights data. Find the mean and standard deviation of your sample and save them as `sample_mean` and `sample_sd`. Just like in the central limit theorem, we find the standard error by dividing the standard deviation by $sqrt(n)$, save this as `SE`. 
+17. Take a sample of size $5$ from the heights data. Find the mean and standard deviation of your sample and save them as `sample_mean` and `sample_sd`. Just like in the central limit theorem, we find the standard error by dividing the standard deviation by $sqrt(n)$, save this as `SE`. 
 
 ```{r}
 # insert code here
@@ -198,11 +204,11 @@ Unlike the normal distribution, which is defined by the mean and standard deviat
 In a normal distribution, we know the $2.5 \%$ and $97.5 \%$ quartiles used for computing a $95 \%$ confidence interval corresponds to critical $z$-scores of about $-1.96$ and $1.96$ and we find these using `qnorm(.025)` and `qnorm(.975)`. We can find the critical scores for the $t$-distribution similarly using the code `qt()`:
 
 ```{r}
-qt(.025,9)
-qt(.975,9)
+qt(.025,4)
+qt(.975,4)
 ```
 
-The $9$ in the code is because we are taking samples of size $10$ and so we use the $t$-distribution defined by degrees of freedom $=10-1$. So, in the $t$-distribution for $9$ degrees of freedom $95 \%$ of the data is between $-2.26$ and $2.26$ standard errors from the center. 
+The $4$ in the code is because we are taking samples of size $5$ and so we use the $t$-distribution defined by degrees of freedom $=5-1$. So, in the $t$-distribution for $4$ degrees of freedom $95 \%$ of the data is between $-2.776$ and $2.776$ standard errors from the center. 
 
 We then multiply these by the standard error and add them to the sample mean to find a $95 \%$ confidence interval. Run the following code and change FALSE to TRUE:
 ```{r, eval=FALSE}
@@ -226,13 +232,13 @@ Answer here
 # insert code here
 ```
 
-20. Test the function using a sample of $10$ heights from the `yrbss` data.
+20. Test the function using a sample of $5$ heights from the `yrbss` data.
 
 ```{r}
 # insert code here
 ```
 
-21. Replicate the function $1000$ times and use `table()` to determine the percentage of confidence intervals that contain the population mean.
+21. Replicate the function $10000$ times and use `table()` to determine the percentage of confidence intervals that contain the population mean.
 
 ```{r}
 # insert code here
