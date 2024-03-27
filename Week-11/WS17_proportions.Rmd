@@ -1,0 +1,180 @@
+---
+title: "Worksheet 17 : t-distribution and proportions"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Sample mean with known $\sigma$
+- Sample mean with unknown $\sigma$
+- Proportions
+
+
+---
+
+
+## Sample mean with known $\sigma$ 
+
+As your sample size $n$ increases, the sampling distribution for the sample mean approaches a normal curve:
+
+$$ \bar{X} \sim N \left(\mu, \frac{\sigma}{\sqrt{n}} \right) $$
+
+### Conditions 
+
+We have been secretly been making assumptions about our data when computing confidence intervals
+
+From now on, before computing a confidence interval using critical $z$-scores we need to check the following conditions:
+
++ **Independence** 
++ **Normality**
+
+  
+#### Example 
+
+A study wants to determine the average amount of sleep students get at Davidson college. A sample of $900$ first year students  were polled on how much sleep they get per night. The average amount of sleep from this sample was found to be $5.7$ hours a night. The population standard deviation is known to be $1.25$ hours. Construct a $95 \%$ confidence interval for the true population mean or explain what conditions prevent you from applying our methods.
+
+```{r}
+
+```
+
+
+#### Example 
+
+A study wants to determine the average amount of sleep students get at Davidson college. A simple random sample of $20$ students is taken and the average amount of sleep from this sample was found to be $5.7$ hours a night. The population standard deviation is known to be $1.25$ hours. Construct a $95 \%$ confidence interval for the true population mean or explain what conditions prevent you from applying our methods.
+
+```{r}
+
+```
+
+#### Example 
+
+A study wants to determine the average amount of sleep students get at Davidson college. A simple random sample of $20$ students reported the sleep habits displayed below. The population standard deviation is known to be $1.25$ hours. Construct a $95 \%$ confidence interval for the true population mean or explain what conditions prevent you from applying our methods.
+
+| Hours | count |
+|:--------: | :-------: |
+| 5  | 1    |
+| 5.5  | 0    |
+| 6  | 1    |
+| 6.5  | 2    |
+| 7 | 5     |
+| 7.5  | 1  |
+| 8 | 3 |
+| 8.5 | 3 |
+| 9 | 4 |
+
+```{r}
+
+
+```
+
+#### Example 
+
+A study wants to determine the average amount of sleep students get at Davidson college. A simple random sample of $20$ students reported the sleep habits displayed below. The population is assumed to be approximately normal and the population standard deviation is known to be $1.25$ hours. Construct a $95 \%$ confidence interval for the true population mean or explain what conditions prevent you from applying our methods.
+
+| Hours | count |
+|:--------: | :-------: |
+| 5  | 1    |
+| 5.5  | 0    |
+| 6  | 1    |
+| 6.5  | 2    |
+| 7 | 5     |
+| 7.5  | 1  |
+| 8 | 3 |
+| 8.5 | 3 |
+| 9 | 4 |
+
+```{r}
+
+
+```
+
+## Sample mean with unknown $\sigma$ 
+
+
+### The t-distribution
+
+
+```{r}
+df <- data.frame(x=seq(-5,5,.1))
+
+ggplot(df, aes(x=x)) + 
+  stat_function(fun=dt, args = 10, aes(color="df =10")) + 
+  stat_function(fun=dt, args = 20,aes(color="df =20")) +
+  stat_function(fun=dt, args = 1,aes(color="df = 1")) +
+  stat_function(fun=dt, args = 2,aes(color="df = 2")) +
+  stat_function(fun=dnorm, args = c(0,1),aes(color="normal")) +
+  scale_color_manual("Degrees of Freedom", values = c("red", "blue", "green", "orange","black")) +
+  theme_minimal() +
+  labs(title = "t-distributions")
+  
+
+```
+
+
+### Conditions
+
+To use the $t$-distribution the same conditions need to be met:
+
++ Independence
+ 
++ Normality
+
+
+## Population Proportion 
+
+
+#### Example 
+
+Suppose we want to estimate the percentage of adults in a large city that use facebook. Of five hundred randomly sampled adults $421$ say they use facebook. Compute a $90 \%$ confidence interval for the true proportion of adults in the city that use facebook. 
+
+```{r}
+
+```
+
+### Conditions
+
++ Independence
++ Success-Failure 
+
+
+1. A study is conducted to analyze internet privacy for teens. A group of $50$ teens is randomly sampled and $7$ report clicking on links from unknown email addresses.  Construct a $90 \%$ confidence interval for the true proportion of teens that click on links from unknown email addresses or explain what conditions prevent you from applying our methods.
+
+```{r}
+
+```
+
+2. A study is conducted to analyze internet privacy for teens. A group of $50$ teens is randomly sampled and $7$ report clicking on links from unknown email addresses.  Construct a $90 \%$ confidence interval for the true proportion of teens that click on links from unknown email addresses or explain what conditions prevent you from applying our methods.
+
+```{r}
+
+```
+
+3. Suppose scores on a statistics exam are normally distributed with an unknown population mean and a population standard deviation of $3$ points. A random sample of $16$ scores is taken and gives a smample mean of $68$. Construct a $95 \%$ confidence interval for the true population mean or explain what conditions prevent you from applying our methods.
+
+```{r}
+
+```
+
+4. Suppose the distribution of average pizza delivery are skewed right with an unknown population mean and  population standard deviation. A random sample of $128$ pizza delivery restaurants is taken and has a sample mean delivery time of $36$ minutes with a standard deviation of $8$ minutes. Construct a $95 \%$ confidence interval for the true population mean or explain what conditions prevent you from applying our methods.
+
+```{r}
+
+```
+
