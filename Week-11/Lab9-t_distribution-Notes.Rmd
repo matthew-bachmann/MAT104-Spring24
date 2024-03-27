@@ -1,0 +1,281 @@
+---
+title: "Lab 9 - t-Distribution"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+library(openintro)
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+set.seed(123)
+```
+
+
+## Intro
+
+In this lab, we will empirically verify the meaning of a confidence interval.
+
+**Goals:**
+
++ Learn how to construct a confidence interval for the sample mean using the central limit theorem.
++ Observe shortcomings of using the sample standard deviation for finding confidence intervals.
++ Understand the Student's $t$-distribution and when to use it.
++ Learn how to construct a confidence interval for the sample mean using the $t$-distribution.
+
+---
+
+## Writing Functions
+
+First, we will write a function that will check if a population mean is inside a confidence interval. 
+
+1. Write the function below:
+
+```{r}
+# first we name the function and define the arguments
+test_pop_sd <- function(data,sample_size){
+  # first find the population mean and standard deviation
+  pop_mean <- mean(data)
+  pop_sd <- sd(data)
+  
+  # sample
+  sample <- sample(data,sample_size)
+  sample_mean <- mean(sample)
+  sample_sd <- sd(sample)
+  
+  # standard error
+  se <- pop_sd / sqrt(sample_size)
+  
+  # compute a 95% confidence interval
+  
+  lower <- sample_mean + qnorm(.025)*se
+  upper <- sample_mean + qnorm(.975)*se
+  
+  if(pop_mean >= lower & pop_mean <= upper){
+    "yes"
+  }
+  else{
+    "no"
+  }
+  
+}
+```
+
+2. Test the function using a sample of $5$ heights from the `yrbss` data. Make sure to remove NA's first:
+
+```{r}
+#removing NAs
+hts_df <- data.frame(height = na.omit(yrbss$height))
+#testing function
+test_pop_sd(hts_df$height, 5)
+```
+
+
+3. Replicate the function $10000$ times and save the result in a `data.frame()` called `outcomes_pop_sd` with a column called `contains_mu`. Then use `table()` to determine the percentage of confidence intervals that contain the population mean.
+
+```{r}
+outcomes <- data.frame(contains_mu = replicate(10000,test_pop_sd(hts_df$height, 5)))
+table(outcomes$contains_mu)
+```
+
+<div>
+:::{#answer}
+
+$95.02$ percent of confidence intervals contain the population mean
+
+:::
+</div>
+
+---
+
+## Confidence intervals with unknown population standard deviation
+
+Of course, in practice, we don't usually know the population standard deviation. Instead, we have to use our best estimation of the population standard deviation. The best estimate for the population standard deviation is the sample standard deviation $s$. 
+
++ When computing confidence intervals you need to know the standard error $\frac{\sigma}{\sqrt{n}}$, but $\sigma$ is often unkown.
++ So, to calculate the standard error you should instead use the sample standard deviation $s$.
+
+5. Write a new function called `test_sample_sd` that calculates confidence intervals using the sample standard deviation instead of the population standard deviation.
+
+```{r}
+# insert code here
+```
+
+6. Test the function using a sample of $5$ heights from the `yrbss` data.
+
+```{r}
+# insert code here
+```
+
+7. Replicate the function $10000$ times and save the result in a `data.frame()` called `outcomes_sample_sd` with a column called `contains_mu`. Then use `table()` to determine the percentage of confidence intervals that contain the population mean.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+8. Which process produced better results? Using the population standard deviation or using the sample standard deviation? What do we mean by "better" in this context?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+## How to work with unkown population standard deviation
+
+It turns out that using the normal distribution for calculating confidence intervals does not perform well if:
+
+ + we don't know the population standard deviation 
+ + and the sample size is small
+ 
+Let's try to see what is going on here by looking at $z$-scores:
+
+9. Save the population mean as `pop_mean` and the population standard deviation as `pop_sd`.
+
+```{r}
+# insert code here
+```
+
+10. In one line of code, take a sample of size $5$ from the heights data and find how many standard errors away from the population mean it is using the formula for $z$-scores: 
+
+$$ \frac{\bar{X}-\mu}{ \frac{\sigma}{\sqrt{n}}}$$
+
+```{r}
+# insert code here
+```
+
+11. Replicate this $10000$ times to find $10000$ $z$-scores and save the results as a `data.frame()` named `z_scores` and a column named `observation`.
+
+```{r}
+# insert code here
+```
+
+12. Plot the $z$-scores in a density histogram using a bin width of $.25$ and add a normal curve to the graph with mean $0$ and standard deviation $1$.
+
+```{r}
+# insert code here
+```
+
+---
+
+Now we will do the same steps, but instead of computing $z$-scores we will compute $t$-scores. The difference between the two is that the $t$-score uses the sample standard deviation. 
+
+13. Below is a function that will calculate the $t$-score of a sample. Change FALSE to TRUE and run the code. 
+
+$$ \frac{\bar{X}-\mu}{ \frac{s}{\sqrt{n}}}$$
+
+```{r, eval=FALSE}
+t_score <- function(data,sample_size){
+      pop_mean <- mean(data)
+      sample <- sample(data,sample_size)
+      sample_mean <- mean(sample)
+      se <- sd(sample)/sqrt(sample_size)
+      (sample_mean-pop_mean)/se
+}
+```
+
+14. Replicate the `t_score` function $10000$ times to find $10000$ $t$-scores and save the results as a `data.frame()` named `t_scores` and a column named `observation`.
+
+```{r}
+# insert code here
+```
+
+15. Plot the $t$-scores in a density histogram using a bin width of $.25$ and add a normal curve to the graph with mean $0$ and standard deviation $1$.
+
+```{r}
+# insert code here
+```
+
+
+Though the fit seems pretty good, notice that the normal curve is smaller than the histogram toward the edges. This difference is what is causing the error in calculating confidence intervals for small samples. Instead of using the normal distribution to find a $95 \%$ confidence interval we will need to use a new distribution called the Student's $t$-distribution.
+
+16. Add the following code to the plot you just created in the last problem: `+ stat_function(fun = dt, args=list(df=9), col="blue")`.
+
+```{r}
+# insert code here
+```
+
+This blue curve is the Student's $t$-distribution. We will learn more about it in the next section. For now, just notice that it fits the histogram a bit better, especially near the tails.
+
+---
+
+## Using the $t$-distribution to calculate a confidence interval
+
+Unlike the normal distribution, which is defined by the mean and standard deviation, the Student's $t$-distribution is defined by only one parameter called the degrees of freedom. When we are building confidence intervals for population means using sample means, we use the distribution with degrees of freedom $=n-1$ where $n$ is the sample size. 
+
+17. Take a sample of size $5$ from the heights data. Find the mean and standard deviation of your sample and save them as `sample_mean` and `sample_sd`. Just like in the central limit theorem, we find the standard error by dividing the standard deviation by $sqrt(n)$, save this as `SE`. 
+
+```{r}
+# insert code here
+```
+
+In a normal distribution, we know the $2.5 \%$ and $97.5 \%$ quartiles used for computing a $95 \%$ confidence interval corresponds to critical $z$-scores of about $-1.96$ and $1.96$ and we find these using `qnorm(.025)` and `qnorm(.975)`. We can find the critical scores for the $t$-distribution similarly using the code `qt()`:
+
+```{r}
+qt(.025,4)
+qt(.975,4)
+```
+
+The $4$ in the code is because we are taking samples of size $5$ and so we use the $t$-distribution defined by degrees of freedom $=5-1$. So, in the $t$-distribution for $4$ degrees of freedom $95 \%$ of the data is between $-2.776$ and $2.776$ standard errors from the center. 
+
+We then multiply these by the standard error and add them to the sample mean to find a $95 \%$ confidence interval. Run the following code and change FALSE to TRUE:
+```{r, eval=FALSE}
+qt(.025,4)*SE + sample_mean
+qt(.975,4)*SE + sample_mean
+```
+
+18. Write the conclusion of the confidence interval below. Is the true population mean, $\mu$, inside your confidence interval? 
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+19. Write a new function called `t_test_sample_sd` that calculates confidence intervals using the sample standard deviation and `qt()` instead of `qnorm()`.
+
+```{r}
+# insert code here
+```
+
+20. Test the function using a sample of $5$ heights from the `yrbss` data.
+
+```{r}
+# insert code here
+```
+
+21. Replicate the function $10000$ times and use `table()` to determine the percentage of confidence intervals that contain the population mean.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+Write your answer here
+:::
+</div>
