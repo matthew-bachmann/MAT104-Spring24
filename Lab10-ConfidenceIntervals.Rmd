@@ -1,0 +1,434 @@
+---
+title: "Lab 10 - Confidence Intervals"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+library(openintro)
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+
+---
+
+## Conditions for Proportions
+
+---
+
+We saw that with for **sample means** we need:
+
++ **independence** 
++ **normality**
+
+in order to use central limit theorem methods.
+
+---
+
+For **population proportions** we need: 
+
++ **independence**
++ **success-failure**
+
+in order to use central limit theorem methods. Independence is the same as for sample means (observations need to come from simple random samples). Success-failure is different, it requires that:
+
++ $p \cdot n \geq 10$
++ $(1-p) \cdot n \geq 10$
+
+This means that the there can't be an extremely uneven number of successes and failures. For example, suppose we want to know the proportion of the population that enjoys anchovies so we randomly sample $100$ people. Only $7$ people say they like anchovies and $93$ say that they don't. Then the proportion of successes is $7/100$ and the proportion of failures is $93/100$ and:
+
++ $p \cdot n = 7/100 \cdot 100 = 7$
++ $(1-p) \cdot n = 93/100 \cdot 100 = 93$
+
+Since $p \cdot n <10$ we cannot use the central limit theorem for population proportions. This proportion does not meet the success-failure condition.
+
+---
+
+#### **Problem:** Administrators suggest that the majority of students support their new uniform policy. A skeptical student polls her school using simple random sampling to determine whether students in the school district are for or against the new legislation regarding school uniforms. She surveys $600$ students and finds that $480$ are against the new legislation.
+
+1. Are the conditions for using the central limit theorem met? Explain your answer. If the conditions are not met move on to the next problem and leave the rest of the exercises for this problem blank.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+2. Identify the values listed below. If the value is unknown, say it is unknown.
+
+<div>
+:::{#answer}
+
+true population proportion:
+
+sample proportion:
+
+standard error of the population proportion:
+
+:::
+</div>
+  
+3. Describe the sampling distribution for the population proportion. 
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+4. Construct a $95 \%$ confidence interval for the true population population.  
+
+```{r}
+#insert code here
+```
+
+5. Does your answer from the previous problem support or challenge the claim of the administrators? Explain your reasoning by making reference to the confidence interval.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+---
+
+#### **Problem:** Political experts claim that only $35 \%$ of registered voters vote in local elections. A recent political poll (assume they use polling methods that ensure independence) asks $10000$ registered voters if they plan to vote in their next local election. The poll finds that $840$ registered voters will vote in the next local election.
+
+6. Are the conditions for using the central limit theorem met? Explain your answer. If the conditions are not met move on to the next problem and leave the rest of the exercises for this problem blank.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+7. Identify the values listed below. If the value is unknown, say it is unknown.
+
+<div>
+:::{#answer}
+
+true population proportion:
+
+sample proportion:
+
+standard error of the population proportion:
+
+:::
+</div>
+  
+8. Describe the sampling distribution for the population proportion. 
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+9. Construct a $95 \%$ confidence interval for the true population population.  
+
+```{r}
+#insert code here
+```
+
+10. Does your answer from the previous problem support or challenge the claim of the political experts? Explain your reasoning by making reference to the confidence interval.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+---
+
+## Practice with Means
+
+#### **Problem:** In a small city renowned for its music school the average number of years a student takes piano lessons is normally distributed. A local reporter claims the average child takes about $7$ years of piano lessons. To test this claim we take a random sample of $20$ children from the city, with a mean of $4.6$ years of piano lessons and a standard deviation of $2.2$ years. Answer the following:
+
+11. Are the conditions for using the central limit theorem met? Explain your answer. If the conditions are not met move on to the next problem and leave the rest of the exercises for this problem blank.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+12. Identify the values listed below. If the value is unknown, say it is unknown.
+
+<div>
+:::{#answer}
+
+population mean:
+
+population standard deviation:
+
+sample mean:
+
+sample standard deviation:
+
+standard error of the sample mean:
+
+:::
+</div>
+  
+13. Describe the sampling distribution for the sample mean. 
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+14. Construct an $98 \%$ confidence interval for the true population mean. 
+
+```{r}
+#insert code here
+```
+
+15. Does your answer from the previous problem support or challenge the claim of the reporter? Explain your reasoning by making reference to the confidence interval.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+---
+
+#### **Problem:** A market researcher wants to evaluate car insurance savings at a competing company. Based on past studies he finds that the standard deviation of savings is $\$100$. The company claims that their customers save $\$ 700$ on avaerage. He randomly samples $165$ customers and finds that they have an average savings of $\$650$ with a standard deviation of $\$80$. 
+
+16. Are the conditions for using the central limit theorem met? Explain your answer. If the conditions are not met move on to the next problem and leave the rest of the exercises for this problem blank.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+17. Identify the values listed below. If the value is unknown, say it is unknown.
+
+<div>
+:::{#answer}
+
+population mean:
+
+population standard deviation:
+
+sample mean:
+
+sample standard deviation:
+
+standard error of the sample mean:
+
+:::
+</div>
+  
+18. Describe the sampling distribution for the sample mean. 
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+19. Construct a $90 \%$ confidence interval for the true population mean.  
+
+```{r}
+#insert code here
+```
+
+20. Does your answer from the previous problem support or challenge the claim of the reporter? Explain your reasoning by making reference to the confidence interval.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+---
+
+## Comparing population proportions
+
+We often want to compare the proportion from two different populations. Here our goal isn't to find the the true population proportion for either of the populations, but rather to find how **different** the population proportions are.
+
+So, the statistic we care about is:
+
+$$ p_1 - p_2$$
+
+the difference between the population proportion for one population and the population proportion for a second population.
+
+The central limit theorem for differences of population proportions says that the sampling distribution for the differences follows a normal distribution as $n$ gets large:
+
+$$ \hat{p_1} - \hat{p_2} \sim N \left(p_1 - p_2, \sqrt{ \frac{p_1\cdot(1-p_1)}{n_1} + \frac{p_2\cdot(1-p_2)}{n_2} } \right)$$
+
+To use the CTL for differences of sample means you need:
+
++ independence: populations need to be randomly assigned to groups or randomly sampled from their populations.
++ success-failure: both populations need to meet the success-failure condition
+
+
+#### **Example:** Consider an experiment for patients who underwent CPR for a heart attack and were subsequently admitted to a hospital. These patients were randomly divided into a treatment group where they received a blood thinner or the control group where they did not receive a blood thinner. The outcome variable of interest was whether the patients survived for at least 24 hours. The results of the experiment is that $11$ patients out of a total of $50$ survived in the control group and $14$ patients out of a total of $40$ survived in the treatment group. Create a $90 \%$ confidence interval for the true difference in population proportions.
+
+```{r}
+# Independence: both samples were randomly divided
+
+# Success-Failure
+# control group
+11/50*50 
+(1-(11/50))*50
+#treatment group
+14/40*40 
+(1-(14/40))*40
+
+# since all the numbers are bigger than 10, the success-failure condition is met.
+
+# known values
+
+p_1 <- 11/50
+n_1 <- 50
+
+p_2 <- 14/40
+n_2 <- 40
+
+sample_difference <- p_1 - p_2
+
+se <- sqrt(p_1*(1-p_1)/n_1 + p_2*(1-p_2)/n_2)
+
+# critical z-scores
+qnorm(.05)
+qnorm(.95)
+
+# confidence interval
+
+sample_difference + qnorm(.05)*se
+sample_difference + qnorm(.95)*se
+
+# We are 90% confident that the true difference between the population proportions is between -28.7 and 2.7 percent. 
+
+# Within the context of the problem, we are 90% confident that patients that do not take blood thinners survive at a rate between 28.7% less and 2.7% more than those that don't take blood thinners
+
+
+```
+
+#### **Problem:** A 5-year experiment was conducted to evaluate the effectiveness of fish oils on reducing cardiovascular events, where each subject was randomized into one of two treatment groups. We’ll consider heart attack outcomes in these patients: $145$ out of $12933$ patients taking fish oil had a heart attack and $200$ out of $13132$ patients taking a placebo had a heart attack.
+
+21. Are the conditions for using the central limit theorem met? Explain your answer. If the conditions are not met move on to the next problem and leave the rest of the exercises for this problem blank.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+22. Identify the values listed below. If the value is unknown, say it is unknown.
+
+<div>
+:::{#answer}
+
+proportion for population 1:
+
+proportion for population 2:
+
+sample difference:
+
+standard error of the difference of proportions:
+
+:::
+</div>
+  
+23. Describe the sampling distribution for the difference of proportions. 
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+14. Construct a $95 \%$ confidence interval for the true difference of proportions.  
+
+```{r}
+#insert code here
+```
+
+25. Interpret your results within the context of the problem.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+---
+
+## Mixed Practice
+
+26. According to a report on sleep deprivation by the Centers for Disease Control and Prevention, the proportion of California residents who reported insufficient rest or sleep during each of the preceding $30$ days is $8.0 \%$, while this proportion is $8.8 \%$ for Oregon residents. These data are based on simple random samples of $11,545$ California and $4,691$ Oregon residents. Calculate a $95 \%$ confidence interval for the difference between the proportions of Californians and Oregonians who are sleep deprived and interpret it in context of the data, or explain why our methods do not apply.
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+27. A student randomly samples their school to determine if cats or dogs are preferred. He samples $50$ students and finds that $7$ students prefer dogs and $43$ students prefer cats. Calculate a $90 \%$ confidence interval for the true proportion of students that prefer dogs and interpret your results within the context of the problem or say why our methods do not apply.
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+28. A student randomly samples their school to determine if cats or dogs are preferred. He samples $100$ students and finds that $17$ students prefer dogs and $83$ students prefer cats. Calculate a $90 \%$ confidence interval for the true proportion of students that prefer dogs and interpret your results within the context of the problem or say why our methods do not apply.
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+29. Announcements for $14$ upcoming events at Davidson college were randomly selected. The mean length of an event was $45$ minutes, with a standard deviation of $18$ minutes. Find an $90 \%$ confidence interval for the average length of an event and interpret your results within the context of the problem or say why our methods do not apply.
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+30. The average height of young adult males has a normal distribution with standard deviation of $2.5$ in. You want to estimate the mean height of students at your Davidson to within $1$ in. with $95 \%$ confidence. How many male students must you measure?
+
+```{r}
+#insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
