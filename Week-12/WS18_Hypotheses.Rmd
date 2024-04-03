@@ -137,14 +137,14 @@ $H_A=$
 
 6. It is believed that $40 \%$ of people pass their driving test on the first attempt. Suppose you think the percentage is greater than $40 \%$. So, you perform a hypothesis test and sample $100$ people. Of the sampled people, $47$ reply that they passed on their first attempt. Set up a hypothesis test and make a conclusion with a $10 \%$ significance level.
 
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
 ```{r}
-# Insert code here
+
 ```
-
-<div>
-:::{#answer}
-
-Write your answer here
-
-:::
-</div> 
