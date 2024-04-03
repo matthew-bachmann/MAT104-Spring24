@@ -103,7 +103,7 @@ Below has the significance level shaded:
 
 ---
 
-4. Suppose a baker claims that his cookie diameter is more than $10$ cm, on average. Several of his customers do not believe him. To persuade his customers that he is right, the baker decides to do a hypothesis test. He bakes $10$ cookies. The mean diameter of the sample is $12$ cm. The baker knows from baking hundreds of cookies that the standard deviation for the diameter is $0.5$ cm. and the distribution of diameters is normal.
+4. Suppose a baker claims that his cookie diameter is more than $10$ cm, on average. Several of his customers do not believe him. To persuade his customers that he is right, the baker decides to do a hypothesis test. He bakes $10$ cookies. The mean diameter of the sample is $12$ cm. The baker knows from baking hundreds of cookies that the standard deviation for the diameter is $0.5$ cm. and the distribution of diameters is normal. Perform a hypothesis test with a $5 \%$ significance level.
 
 $H_0=$ 
 
@@ -119,7 +119,7 @@ $H_A=$
 
 ---
 
-5. Some people claim that they can tell the difference between a diet soda and a regular soda in the first sip. A researcher wanting to test this claim randomly sampled $80$ such people. He then filled $80$ plain white cups with soda, half diet and half regular through random assignment, and asked each person to take one sip from their cup and identify the soda as diet or regular. $53$ participants correctly identified the soda. Does this data provide strong evidence that people can tell the difference between regular and diet soda?
+5. Some people claim that they can tell the difference between a diet soda and a regular soda in the first sip. A researcher wanting to test this claim randomly sampled $80$ such people. He then filled $80$ plain white cups with soda, half diet and half regular through random assignment, and asked each person to take one sip from their cup and identify the soda as diet or regular. $53$ participants correctly identified the soda. Does this data provide strong evidence that people can tell the difference between regular and diet soda? (when a significance level is not specified use $\alpha=.05$).
 
 $H_0=$ 
 
@@ -137,14 +137,14 @@ $H_A=$
 
 6. It is believed that $40 \%$ of people pass their driving test on the first attempt. Suppose you think the percentage is greater than $40 \%$. So, you perform a hypothesis test and sample $100$ people. Of the sampled people, $47$ reply that they passed on their first attempt. Set up a hypothesis test and make a conclusion with a $10 \%$ significance level.
 
-$H_0=$ 
-
-$H_A=$ 
-
-<center>
-<img src="./place_holder.JPG" width="450"/>
-</center>
-
 ```{r}
-
+# Insert code here
 ```
+
+<div>
+:::{#answer}
+
+Write your answer here
+
+:::
+</div> 
