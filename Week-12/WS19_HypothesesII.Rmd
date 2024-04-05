@@ -1,0 +1,147 @@
+---
+title: "Worksheet 19 : Hypothesis Testing II"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Forming Hypotheses
+- How rare is rare enough
+
+
+
+---
+
+
+#### **Example:**
+A worker at a company feels that there is gender bias associated to whether someone gets hired or not. Let $p$ be the proportion of of people getting promotions that are men:
+
+$$H_0: p=0.5 \text{, there is no gender bian associated to promotions}$$
+$$H_A: p>0.5 \text{, there is a higher proportion of men getting promotions}$$
+<p align="center"> **Promotion Data** </p>
+| | | | | Promoted | | | Not Promoted | | | Total | |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| | Male | | | $21$ | | | $3$ | | | $24$ | |
+| | Female | | | $14$ | | | $10$ | | | $24$ | |
+| | Total | | | $35$ | | | $13$ | | | $48$ | |
+
+#### Performing a hypothesis test:
+
+```{r}
+# 21/35 people getting promotions are men
+# 14/35 people getting promotions are women
+
+# assume the null hypothesis is true
+p <- .5
+n <- 35
+se <- sqrt(p*(1-p)/n)
+
+# assuming the null hypothesis, the sampling distribution is N(.5,.0845). 
+# What is the probability that a sample proportion is as rare or more rare than the observation 21/35
+
+obs <- 21/35
+
+1-pnorm(obs,p,se)
+
+
+```
+
+
+
+1. Some people claim that they can tell the difference between a diet soda and a regular soda in the first sip. A researcher wanting to test this claim randomly sampled $80$ such people. He then filled $80$ plain white cups with soda, half diet and half regular through random assignment, and asked each person to take one sip from their cup and identify the soda as diet or regular. $53$ participants correctly identified the soda. Does this data provide strong evidence that people can tell the difference between regular and diet soda?
+
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
+
+2. A child is seeing how long they can hold their breathe under water. The child thinks they can hold their breathe for $150$ seconds on average. The child’s dad thinks it less than that. He samples his daughter holding her breathe eight times and the results are $144$, $152$, $138$, $144$, $136$, $162$, $158$, and $142$. Perform a hypothesis test using a $5 \%$ level of significance. Does the data provide sufficient evidence to reject the null hypothesis?
+
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
+
+3. A survey asked $827$ randomly sampled registered voters in California “Do you support? Or do you oppose? Drilling for oil and natural gas off the Coast of California? Or do you not know enough to say?” Below is the distribution of responses, separated based on whether or not the respondent graduated from college. Perform a hypothesis test to determine if there is a statistically significant difference between the proportion of college grads and non-college grads that don’t have an opinion on the matter using a significance level of $5 \%$
+
+| | College Grad | Not College Grad |
+|:--:|:--:|:--:|
+|Support | $154$ | $132$ | 
+|Oppose | $180$ | $126$ |
+|Don't know | $104$ | $131$ |
+|Total | $438$ | $389$ | 
+
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
+
+
+---
+
+4. A Kaiser Family Foundation poll for US adults in 2019 found that $79 \%$ of Democrats, $55 \%$ of Independents, and $24 \%$ of Republicans supported a generic “National Health Plan”. There were $347$ Democrats, $298$ Republicans, and $617$ Independents surveyed. Conduct a hypothesis test to determine if the data provide strong evidence that the proportion of Democrats who support a national health plan is different than that of Independents.
+
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
+
+
+5. It is believed that $40 \%$ of people pass their driving test on the first attempt. Suppose you think the percentage is greater than $40 \%$. So, you perform a hypothesis test and randomly sample $100$ people. Of the sampled people, $47$ reply that they passed on their first attempt. Set up a hypothesis test and make a conclusion with a $10 \%$ significance level.
+
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
