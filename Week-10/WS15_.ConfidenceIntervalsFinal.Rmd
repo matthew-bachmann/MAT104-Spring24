@@ -1,0 +1,142 @@
+---
+title: "Worksheet 15 : Confidence"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- Central Limit Theorem
+- Including Pictures
+- Confidence Intervals 
+
+
+---
+
+
+## Central Limit Theorem
+
+### Review from lab
+
++ Taking a sample of size $n$ and finding the sample mean $\bar{X}$ is a repeatable process
++ Therefore, $\bar{X}$ is a random variable with a probability distribution called the sampling distribution.
+
+The **central limit theorem** (for sample means) says that as the sample size $n$ increases, the sampling distribution for the sample mean approaches a **normal distribution**:
+
+$$ \bar{X} \sim N \left(\mu, \frac{\sigma}{\sqrt{n}} \right)$$
+
++ This means that the **sampling distribution** is centered at the population mean $\mu$ and has standard deviation equal to $\frac{\sigma}{\sqrt{n}}$ (the standard error of the mean).
+
++ We won't prove this fact, but you have done several experiments in `R` that provide empirical evidence for the theorem.
+
+## Including Pictures
+
+1. Include a picture of the sampling distribution below:
+
+<div>
+:::{#answer}
+<center>
+<img src="./IMG_0759.JPG" width="550"/>
+</center>
+:::
+</div>
+
++ about $68 \%$ of sample means are within one standard error of the population mean
+
++ about $ 68 \%$ of sample means are inside the range:
+
+$$ \mu - (1*SE) \leq \bar{X} \leq \mu + (1*SE) $$
+
++ the probability that a sample mean is within a certain range is call the **confidence level**. 
++ the above range corresponds to a confidence level of about $68 \%$.
++ $alpha$ corresponds to the probability that a sample mean IS NOT within the range.
++ the above range corresponds to an $\alpha$ of about $32 \%$
+
++ We keep saying **about** $68 \%$ because this is just an estimate of the percentage within one standard deviation. 
++ If you want a confidence level of **exactly** $68\%$ you need to know the **exact** $z$-scores.
++ these are called **critical z-scores** and are denoted by $z_{\alpha / 2 }$
++ It is the absolute value 
++ Below is a picture for the situation:
+
+<center>
+<img src="./IMG_0759.JPG" width="550"/>
+</center>
+
+2. Find the exact $z$-scores corresponding to a confidence level of $68 \%$.
+
+```{r}
+
+```
+
+
+### Example 
+
+For a confidence level of $75 \%$:
+
++ $\alpha = 25 \%$.
+
++ Below is picture of the sampling distribution for a confidence level of $75 \%$:
+
+
+<center>
+<img src="./IMG_0759.JPG" width="550"/>
+</center>
+
+## Rearranging
+
+
+
+
+
+
+
+3. Draw a picture that represents the sampling distribution for the sample mean with a $90 %$ confidence level.
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+4. What is $\alpha$ for a $90 \% confidence level?
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+5. What is the exact $z$-score needed for a $90 \%$ confidence level?
+
+```{r}
+
+```
+
+6. Express a range of values such that there is a $90 \%$ probability the sample mean will land in that range.
+
+<div>
+:::{#answer}
+
+
+:::
+</div>
+
+
