@@ -474,15 +474,31 @@ the population is known to be normally distributed</li>
 </div>
 <div id="sample-mean-unknown-standard-deviation" class="section level3">
 <h3>Sample Mean unknown standard deviation</h3>
-<p>If the population standard deviation is unkown then we use the sample
-standard deviation as a substitute. Then sampling distribution of the
-t-statistic will approach a t-distribution with degrees of freedom <span class="math inline">\(n-1\)</span> and:</p>
+<p>If the population standard deviation is unknown then we use the
+sample standard deviation as a substitute. Then sampling distribution of
+the t-statistic will approach a t-distribution with degrees of freedom
+<span class="math inline">\(n-1\)</span> and:</p>
 <p><span class="math display">\[SE = \frac{s}{\sqrt{n}}\]</span></p>
 <p><strong>CONDITIONS</strong></p>
 <ul>
 <li>Independence: simple random sample</li>
 <li>Normality: either <span class="math inline">\(n \geq 30\)</span> or
 the population is known to be normally distributed</li>
+</ul>
+<hr />
+</div>
+<div id="population-proportions" class="section level3">
+<h3>population proportions</h3>
+<p>The Central Limit Theorem says that as the sample size <span class="math inline">\(n\)</span> increases, the sampling distribution of
+the sample proportion will approach a normal distribution:</p>
+<p><span class="math display">\[ \hat{p}  \sim N
+\left(p,\sqrt{\frac{p\cdot (1-p)}{n} } \right)\]</span></p>
+<p><strong>CONDITIONS</strong></p>
+<ul>
+<li>Independence: simple random sample</li>
+<li>success-failure: <span class="math inline">\(p \cdot n \geq
+10\)</span> and <span class="math inline">\((1-p) \cdot n \geq
+10\)</span></li>
 </ul>
 <hr />
 </div>
@@ -497,9 +513,9 @@ the sample proportion will approach a normal distribution:</p>
 <ul>
 <li>Independence: both populations come from simple random samples</li>
 <li>success-failure: (both populations) <span class="math inline">\(p_1
-\cdot n_1 \geq 10\)</span> and <span class="math inline">\((1-p_1 \cdot
+\cdot n_1 \geq 10\)</span> and <span class="math inline">\((1-p_1) \cdot
 n_1 \geq 10\)</span> and <span class="math inline">\(p_2 \cdot n_2 \geq
-10\)</span> and <span class="math inline">\((1-p_2 \cdot n_2 \geq
+10\)</span> and <span class="math inline">\((1-p_2) \cdot n_2 \geq
 10\)</span></li>
 </ul>
 <hr />
@@ -660,8 +676,8 @@ Does the data provide sufficient evidence to reject the null hypothesis?
 Include a drawing of the sampling distribution with the center and
 sample statistic both labeled. Shade the area represented by the <span class="math inline">\(p\)</span>-value.</li>
 </ol>
-<p><span class="math inline">\(H_0=\)</span></p>
-<p><span class="math inline">\(H_A=\)</span></p>
+<p><span class="math inline">\(H_0:\)</span></p>
+<p><span class="math inline">\(H_A:\)</span></p>
 <center>
 <img src="./place_holder.JPG" width="450" />
 </center>

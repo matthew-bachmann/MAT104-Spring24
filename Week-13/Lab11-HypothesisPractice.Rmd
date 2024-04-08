@@ -38,7 +38,7 @@ $$\bar{X} \sim N \left(\mu,\frac{\sigma}{\sqrt{n}} \right)$$
 ### Sample Mean unknown standard deviation
 
 
-If the population standard deviation is unkown then we use the sample standard deviation as a substitute. Then sampling distribution of the t-statistic will approach a t-distribution with degrees of freedom $n-1$ and:
+If the population standard deviation is unknown then we use the sample standard deviation as a substitute. Then sampling distribution of the t-statistic will approach a t-distribution with degrees of freedom $n-1$ and:
 
 $$SE = \frac{s}{\sqrt{n}}$$
 
@@ -46,6 +46,19 @@ $$SE = \frac{s}{\sqrt{n}}$$
 
 + Independence: simple random sample
 + Normality: either $n \geq 30$ or the population is known to be normally distributed
+
+---
+
+### population proportions
+
+The Central Limit Theorem says that as the sample size $n$ increases, the sampling distribution of the sample proportion will approach a normal distribution:
+
+$$ \hat{p}  \sim N \left(p,\sqrt{\frac{p\cdot (1-p)}{n} } \right)$$
+
+**CONDITIONS**
+
++ Independence: simple random sample
++ success-failure: $p \cdot n \geq 10$ and $(1-p) \cdot n \geq 10$ 
 
 ---
 
@@ -58,7 +71,7 @@ $$ \hat{p_1}- \hat{p_1}  \sim N \left(p_1-p_2,\sqrt{\frac{p_1\cdot (1-p_1)}{n_1}
 **CONDITIONS**
 
 + Independence: both populations come from simple random samples
-+ success-failure: (both populations) $p_1 \cdot n_1 \geq 10$ and $(1-p_1 \cdot n_1 \geq 10$ and $p_2 \cdot n_2 \geq 10$ and $(1-p_2 \cdot n_2 \geq 10$
++ success-failure: (both populations) $p_1 \cdot n_1 \geq 10$ and $(1-p_1) \cdot n_1 \geq 10$ and $p_2 \cdot n_2 \geq 10$ and $(1-p_2) \cdot n_2 \geq 10$
 
 ---
 
@@ -187,9 +200,9 @@ $H_A:$
 
 8. A child is seeing how long they can hold their breathe under water. The child thinks they can hold their breathe for $150$ seconds on average. The child’s dad thinks it less than that. He samples his daughter holding her breathe eight times and and finds that the average is 147 second with a standard deviation of 9 seconds. Assume the average amount of time a child can hold their breathe is normally distributed. Perform a hypothesis test using a $5 \%$ level of significance. Does the data provide sufficient evidence to reject the null hypothesis? Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
 
-$H_0=$ 
+$H_0:$ 
 
-$H_A=$ 
+$H_A:$ 
 
 <center>
 <img src="./place_holder.JPG" width="450"/>
