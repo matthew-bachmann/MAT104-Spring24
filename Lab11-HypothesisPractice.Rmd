@@ -1,0 +1,229 @@
+---
+title: "Lab 11-Hypothesis Practice"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+library(openintro)
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+
+### Sample Mean known standard deviation
+
+The Central Limit Theorem says that as the sample size $n$ increases, the sampling distribution of the sample mean will approach a normal distribution:
+
+$$\bar{X} \sim N \left(\mu,\frac{\sigma}{\sqrt{n}} \right)$$
+
+**CONDITIONS**
+
++ Independence: simple random sample
++ Normality: either $n \geq 30$ or the population is known to be normally distributed
+
+---
+
+### Sample Mean unknown standard deviation
+
+
+If the population standard deviation is unkown then we use the sample standard deviation as a substitute. Then sampling distribution of the t-statistic will approach a t-distribution with degrees of freedom $n-1$ and:
+
+$$SE = \frac{s}{\sqrt{n}}$$
+
+**CONDITIONS**
+
++ Independence: simple random sample
++ Normality: either $n \geq 30$ or the population is known to be normally distributed
+
+---
+
+### Difference of population proportions
+
+The Central Limit Theorem says that as the sample size $n$ increases, the sampling distribution of the sample proportion will approach a normal distribution:
+
+$$ \hat{p_1}- \hat{p_1}  \sim N \left(p_1-p_2,\sqrt{\frac{p_1\cdot (1-p_1)}{n_1} + \frac{p_2\cdot (1-p_2)}{n_2}} \right)$$
+
+**CONDITIONS**
+
++ Independence: both populations come from simple random samples
++ success-failure: (both populations) $p_1 \cdot n_1 \geq 10$ and $(1-p_1 \cdot n_1 \geq 10$ and $p_2 \cdot n_2 \geq 10$ and $(1-p_2 \cdot n_2 \geq 10$
+
+---
+
+### Difference of means with known standard deviation
+
+The Central Limit Theorem says that as the sample size $n$ increases, the sampling distribution of the difference of two sample means will approach a normal distribution:
+
+$$ \bar{X_1}- \bar{X_2}  \sim N \left(\mu_1 - \mu_2, \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \right)$$
+
+**CONDITIONS**
+
++ Independence: both populations come from simple random samples
++ Normality: both populations have $n \geq 30$ or come from normally distributed populations
+
+---
+
+1. Researchers conducted a study to find out if there is a difference in the use of eReaders by different age groups. Randomly selected participants were divided into two age groups. In the $16$ to $29$-year-old group, $8 \%$ of the $600$ surveyed use eReaders, while $11\ %$ of the $800$ participants $30$ years old and older use eReaders. Conduct a hypothesis test to see if this data shows a statistically significant difference in the populations or indicate why our methods do not apply. Set $\alpha = 0.05$. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+---
+
+2. A study is done to determine if Company A retains its workers longer than Company B. Company A randomly samples $35$ workers, and their average time with the company is six years. Company B samples $40$ workers, and their average time with the company is $3.5$ years. Both companies looks at historical records and determine that company A retains workers with a standard deviation of $0.8$ years and company B with a standard deviation of $0.6$ years. At a $5 \%$ significance level, is there a statistically significant difference between the average time workers stay at company A and the average time workers stay at company B? Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+---
+
+3. An inventor has developed a new, energy-efficient engine. He claims that the engine will run continuously for more than $5$ hours ($300$ minutes) on a single gallon of regular gasoline. From his stock of engines, the inventor selects a simple random sample of $50$ engines for testing. The engines run for an average of $305$ minutes. The true standard deviation $\sigma$ is $30$ minutes. Set up a hypothesis test and make a conclusion with a $5 \%$ significance level or indicate why our methods do not apply. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+---
+
+4. Natural cork in wine bottles is subject to deterioration, and as a result wine in such bottles may experience contamination. In a simple random sample of $91$ wine bottles, $16$ of them were found to be spoiled to some extent by cork deterioration. Does this data provide strong evidence for concluding that more than $15 \%$ of all such bottles are contaminated in this way? Use a significance level equal to $0.10$. Or, indicate why our methods cannot apply. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+---
+
+5. An engineer knows that the hardness score of the concrete they are using is normally distributed. They hypothesize that the mean hardness score of the concrete mixture they are using is higher than $170$. The engineer measured the hardness of $20$ slabs of concrete and calculated the sample mean to be $174.52$ and the sample standard deviation to be $10.31$. With a significance level of $10 \%$, perform a hypothesis test that the true average score is greater than $170$ or explain why our methods do not apply. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+---
+
+6. A student at a four-year college claims that mean enrollment at four–year colleges is higher than at community colleges. Two surveys are conducted. Of the $15$ community colleges surveyed, the mean enrollment was $5,068$ with a standard deviation of $4,777$. Of the $5$ four-year colleges surveyed, the mean enrollment was $5,466$ with a standard deviation of $8,191$. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+---
+
+7. Driver error can be listed as the cause of approximately $40 \%$ of all fatal auto accidents. Thirty randomly selected fatal accidents are examined, and it is determined that $14$ were caused by driver error. Using $\alpha = 0.05$, does the data suggest the true proportion of accidents caused by driver error is greater than $40 \%$? Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0:$
+
+$H_A:$
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+# insert code here
+```
+
+8. A child is seeing how long they can hold their breathe under water. The child thinks they can hold their breathe for $150$ seconds on average. The child’s dad thinks it less than that. He samples his daughter holding her breathe eight times and and finds that the average is 147 second with a standard deviation of 9 seconds. Assume the average amount of time a child can hold their breathe is normally distributed. Perform a hypothesis test using a $5 \%$ level of significance. Does the data provide sufficient evidence to reject the null hypothesis? Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0=$ 
+
+$H_A=$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
+
+9. A Kaiser Family Foundation poll for US adults in 2019 found that $79 \%$ of Democrats, $55 \%$ of Independents, and $24 \%$ of Republicans supported a generic “National Health Plan”. There were $347$ Democrats, $298$ Republicans, and $617$ Independents surveyed. Conduct a hypothesis test to determine if the data provide strong evidence that the proportion of Democrats who support a national health plan is different than that of Independents.
+
+$H_0:$ 
+
+$H_A:$ 
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+```{r}
+
+```
+
+10. Suppose we do a random sample of $20$ values from a population that is normally distributed with standard deviation $6$. We want to perform a hypothesis test using a significance level $\alpha=.1$. If we use the following hypotheses:
+ 
+$H_0: \mu = 78$ 
+
+$H_A: \mu \neq 78$ 
+
+Give all values of the sample mean for which the null hypothesis will be rejected.
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
