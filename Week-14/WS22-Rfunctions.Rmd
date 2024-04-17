@@ -1,0 +1,126 @@
+---
+title: "Worksheet 22 : Using R for tests"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- One sample z-test
+- One sample t-test
+- One sample proportion test
+- Difference of proportions
+- Difference of means
+- Paired data
+
+
+---
+
+## One sample z-test
+
+- First we will need to install and load the `BSDA` package
+- `zsum.test` will perform hypothesis test
+
+1. An inventor has developed a new, energy-efficient engine. He claims that the engine will run continuously for more than $5$ hours ($300$ minutes) on a single gallon of regular gasoline. From his stock of engines, the inventor selects a simple random sample of $50$ engines for testing. The engines run for an average of $305$ minutes. The true standard deviation $\sigma$ is $30$ minutes. Set up a hypothesis test and make a conclusion with a $5 \%$ significance level or indicate why our methods do not apply. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0: \mu \leq 300$
+
+$H_A: \mu > 300$
+
+```{r}
+
+```
+
+## One sample t-test
+
+- `tsum.test` will perform hypothesis test
+
+2. An engineer knows that the hardness score of the concrete they are using is normally distributed. They hypothesize that the mean hardness score of the concrete mixture they are using is higher than $170$. The engineer measured the hardness of $20$ slabs of concrete and calculated the sample mean to be $174.52$ and the sample standard deviation to be $10.31$. With a significance level of $10 \%$, perform a hypothesis test that the true average score is greater than $170$ or explain why our methods do not apply. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0: \mu \leq 170$
+
+$H_A: \mu >170$
+
+```{r}
+
+```
+ 
+## One sample proportion test
+
+3. Natural cork in wine bottles is subject to deterioration, and as a result wine in such bottles may experience contamination. In a simple random sample of $91$ wine bottles, $16$ of them were found to be spoiled to some extent by cork deterioration. Does this data provide strong evidence for concluding that more than $15 \%$ of all such bottles are contaminated in this way? Use a significance level equal to $0.10$. Or, indicate why our methods cannot apply. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0: p \leq .15$
+
+$H_A: p > .15$
+
+```{r}
+
+```
+ 
+## Difference of proportions
+
+- difference of proportions is a little different
+- we still use `prop.test()` but the arguments aren't suggested
+- `prop.test( c(successes_1,successes_2),c(total_1,total_2), correct = FALSE)`
+
+4. Researchers conducted a study to find out if there is a difference in the use of eReaders by different age groups. Randomly selected participants were divided into two age groups. In the $16$ to $29$-year-old group, $8 \%$ of the $600$ surveyed use eReaders, while $11\ %$ of the $800$ participants $30$ years old and older use eReaders. Conduct a hypothesis test to see if this data shows a statistically significant difference in the populations or indicate why our methods do not apply. Set $\alpha = 0.05$. Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0: p_{young} - p_{old} = 0$
+
+$H_A: p_{young} - p_{old} \neq 0$
+
+```{r}
+
+```
+
+## Two sample means
+
+### z-test
+
+- the z-test is used when we know the population standard deviation
+
+5. A study is done to determine if Company A retains its workers longer than Company B. Company A randomly samples $35$ workers, and their average time with the company is six years. Company B samples $40$ workers, and their average time with the company is $3.5$ years. Both companies looks at historical records and determine that company A retains workers with a standard deviation of $0.8$ years and company B with a standard deviation of $0.6$ years. At a $5 \%$ significance level, is there a statistically significant difference between the average time workers stay at company A and the average time workers stay at company B? Include a drawing of the sampling distribution with the center and sample statistic both labeled. Shade the area represented by the $p$-value.
+
+$H_0: \mu_A - \mu_B =0$
+
+$H_A: \mu_A - \mu_B \neq 0$
+
+```{r}
+
+```
+
+### t-test 
+
+- unknown population standard deviation
+
+6. It is thought that middle school age boys and girls spend an equal time on average watching tv and the time watching tv is normally distributed. A study is done for $25$ randomly selected children. The study had $16$ boys and $9$ girls. The $16$ boys watched tv for an average of $3.22$ hours per day with a sample standard deviation of $1$. The $9$ girls watched an average of two hours of television per day with a sample standard deviation of $.866$. Does the study suggest a statistically significant difference in the two population means using a significance level of $.05$?
+
+$H_0: \mu_b = \mu_g$
+
+$H_A: \mu_b \neq \mu_g$
+
+```{r}
+
+```
+
+
+
+7. A study is done by two colleges to determine which one graduates students who have taken more math classes. It is thought that the number of math classes students graduate with is normally distributed. College A samples $11$ graduates. Students from College A on average take $4$ math classes before graduating with a standard deviation of $1.5$. College B samples nine graduates. Their average is $3.5$ math classes with a standard deviation of $1$. People in the community have the impression that College A is more STEM focused and therefore graduates have taken more math classes on average. Set up a hypothesis test to see the if there is a true difference in the means at a $1 \%$ significance level. 
+
+8. A particular brand of tires claims that its deluxe tire averages at least $50,000$ miles before it needs to be replaced. From past studies of this tire, the standard deviation is known to be $8,000$. A survey of owners of that tire design is conducted. From the $28$ tires surveyed, the mean lifespan was $46,500$ miles with a standard deviation of $9,800$ miles. Using a significance level of $0.05$, perform a hypothesis test for the brands claim.
