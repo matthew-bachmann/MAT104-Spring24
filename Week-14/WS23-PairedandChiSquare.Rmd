@@ -1,0 +1,246 @@
+---
+title: "Worksheet 23 : Paired, Chi-Square"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+library(BSDA)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+  
+## Today's Agenda
+- paired data
+- Fitting a distribution
+- chi-square independence
+
+
+---
+
+## paired data
+
+- Consider the following examples of possible data sets
+  + blood pressure of $100$ patients before and after taking a medication
+  + food prices of $100$ items at Harris Teeter and at Food Lion
+  + weight of $100$ pateints before and after 6 months on a particular nutrition protocol
+  
+- all of these examples describe datasets with $200$ observations
+- however, there are pairs of data points that are especially related to each other
+  + the blood pressure of patient A before, and the blood pressure of patient A after
+  + the price of 1 lb of bananas at Harris Teeter and the price of 1 lb of bananas at Food Lion
+- a **paired $t$-test** can be used to test if there is an average different between the two groups.
+- for a paired t-test, you find the difference for each paired observation and then find the average difference
+- once you have the average difference you just perform a normal t-test with the differences
+  + conditions
+    * independence
+    * normality
++ the null hypothesis in a paired test is almost always that there is no difference between the paired data points.
+
+---    
+
+#### Example: A study is done where $35$ overweight individuals are selected for a new nutrition program for weight loss. The study tracks the individuals weight at the beginning of the study and records their weight again $90$ days later. Below is a table for their weight loss:
+
+| before | after | difference |
+| :--: | :--: | :--: |
+| 206.6 | 215.3 | -8.7 |
+| 211.5 | 213.3 | -1.8 |
+| 238.4 | 204.1 | 34.3 | 
+| 216.1 | 200.4 | 15.7 |
+| $\vdots$ | $\vdots$ | $\vdots$ | 
+| 228.2 | 218.8 | 9.4|
+
+#### From this table we find that the average weight loss is $8.9$ lbs with a standard deviation of the differences is $20.49009$. Set up a hypothesis test to determine whether, on average, the difference is real or simply due to randomness. Also, check the conditions for whether we can move forward with the test using the t-distribution. 
+
+$H_0:$ the average difference is 0
+
+$H_A:$ the average difference is not 0
+
+```{r}
+tsum.test(8.908571,20.49009, 35)
+```
+
+---
+
+## Fitting a distribution
+
+- Often we have data that we expect will fit a certain distribution. 
+- We can use statistical tests to determine if the data really does fit that distribution
+
+#### Example: On a fair six sided die, each side is expected to be equally likely (uniform distribution). However, many die are constructed so that the numbers are marked by hollowed out pips. This should, in theory, cause the sides with more pips to be lighter than the sides with fewer pips. A person conjectures that the five and six should show up more often when rolling a six sided die since those sides are the lightest sides and the heavier sides should be on the bottom. Over many, many weeks, they roll a die $300,000$ times and record their results:
+
+
+| Outcome | Observed | Expected |
+|:--:|:--:|:--:|
+|$1$ | $50,611$ | $50,000$
+|$2$ | $49,523$ | $50,000$
+|$3$ | $49,812$ | $50,000$
+|$4$ | $49,924$ | $50,000$
+|$5$ | $49,672$ | $50,000$
+|$6$ | $50,458$ | $50,000$
+| Total: | $300,000$ | $300,000$
+
++ The distribution is obviously not perfectly uniform
++ How do we test if the variation is due to randomness or not?
+
+
+$H_0$: There is no inconsistency between the observed and the expected counts. The observed counts follow the same distribution as the expected counts. 
+
++ this is almost always what the null hypothesis is
+
+$H_A$: There is an inconsistency between the observed and the expected counts. The observed counts do not follow the same distribution as the expected counts. There is a bias in which side comes up on the roll of a die.
+
++ The statistic we will use to test how good of a fit we have is called the **$\chi$-square statistic**. 
+
++ It is computed via:
+
+$$ \displaystyle \chi^2 =  \sum \frac{ (\text{observed}- \text{expected})^2}{\text{expected}}$$
+
+| Outcome | Observed | Expected | $\sum \frac{ (\text{observed}- \text{expected})^2}{\text{expected}}$ |
+|:--:|:--:|:--:|:--:|
+|$1$ | $50,611$ | $50,000$ | $7.46642$
+|$2$ | $49,523$ | $50,000$ | $4.55058$
+|$3$ | $49,812$ | $50,000$ | $0.70688$
+|$4$ | $49,924$ | $50,000$ | $0.11552$
+|$5$ | $49,672$ | $50,000$ | $2.15168$
+|$6$ | $50,458$ | $50,000$ | $4.19528$
+| Total: | $300,000$ | $300,000$ | $19.18636$
+
+
+```{r}
+1-pchisq(19.18636,5)
+
+obs <- c(50611,49523,49812,49924,49672,50458)
+chisq.test(obs,correct = FALSE)
+# by default, chisq compares to the uniform distribution
+```
+
+---
+
+---
+
++ Independence
+  - outcome of a random process
++ all expected values need to be at least 5
+
+## How to tell if variables are independent
+
+**Example:** Students in grades 4-6 were asked whether good grades, athletic ability, or popularity was most important to them. A table separating the students by grade and by choice of most important factor is shown below. Do these data provide evidence to suggest that goals vary by grade?
+
+
+| | Grades | Popular | Sports | Total |
+|:--:|:--:|:--:|:--:|:--:|
+|$4^{th}$ | $63$ | $31$ | $25$ | $119$ |
+|$5^{th}$ | $88$ | $55$ | $33$ | $176$ |
+|$6^{th}$ | $96$ | $55$ | $32$ | $183$ |
+| Totals: | $247$ | $141$ | $90$ | $478$ | 
+
++ Do $4th$, $5th$, and $6th$ graders think differently about what is important? 
++ Does what is important depend on grade level? Or are they independent?
+
+$H_0:$   Grade and goals are independent. Goals do not vary by grade
+
+$H_A:$ Grade and goals are dependent. Goals vary by grade
+
+---
+
+To test this we again want to compute a chi-square statistic $\chi^2$:
+
+$$ \displaystyle \chi^2= \sum \frac{ (\text{observed}- \text{expected})^2}{\text{expected}}$$
+
++ how to compute the expected values?
++ If there is no difference between grade levels, then the proportion of $4th$ graders that think grades are important should be the same as the proportion of $5th$ graders that think grades are important, etc.
++ We can compute the expected amounts via:
+$$ \displaystyle  \frac{ (\text{row total} \cdot \text{column total})}{\text{table total}}$$
+
+```{r}
+# verify that these are all greater than 5
+grades_4 <- 119 * 247 / 478
+pop_4 <- 119 * 141 / 478
+sport_4 <- 119 * 90 / 478
+
+grades_5 <- 176 * 247 /478
+pop_5 <- 176 * 141 /478
+sport_5 <- 176 * 90 /478
+
+grades_6 <- 183 * 247 /478
+pop_6 <- 183 * 141 /478
+sport_6 <- 183 * 90 /478
+```
+
+### Calculating $\chi^2$
+
+Now that we have all the expected outcomes, the process for computing $\chi^2$ is exactly the same as for goodness of fit:
+
+```{r}
+(63-grades_4)^2/grades_4 + (31-pop_4)^2/pop_4 + (25-sport_4)^2/sport_4 + 
+  (88-grades_5)^2/grades_5 + (55-pop_5)^2/pop_5 + (33-sport_5)^2/sport_5 + 
+  (96-grades_6)^2/grades_6 + (55-pop_6)^2/pop_6 + (32-sport_6)^2/sport_6
+```
+
+---
+
+The degrees of freedom used depends on the type of test you are doing:
+
++ for goodness of fit tests, the degrees of freedom is the number of bins $-1$.
++ for independence tests, the degree of freedom is $(\#$ of rows $-1) \times (\#$ of columns $-1)$
+
+**Example:** To find the probability with regard to how rare $\chi^2 = 1.3$ is, we use the following code:
+
+```{r}
+# rarity of chi-square of 1.3 with 3 rows and 3 columns
+1-pchisq(1.312105,4)
+```
+
+Returning to hypothesis testing:
+
+$H_0:$   Grade and goals are independent. Goals do not vary by grade
+
+$H_A:$ Grade and goals are dependent. Goals vary by grade
+
+Since $.86 >.05$, we fail to reject the null hypothesis. The data provide convincing evidence that goals and grades are independent. It does not appear that goals vary by grade.
+
+
+---
+
+
+## Class Activity
+
+1. A college is interested in the relationship between anxiety levels and pressure to succeed in school. A random sample of $400$ students responded in the following way:
+
+| Pressure to Succeed | High Anxiety | Medium-High Anxiety | Medium Anxiety | Medium-Low Anxiety | Low Anxiety | Total|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| High | $35$ | $42$ | $53$ | $15$ | $10$ | $155$ |
+| Medium | $18$ | $48$ | $63$ | $33$ | $31$ | $193$ |
+| Low | $4$ | $5$ | $11$ | $15$ | $17$ | $52$ |
+| Total | $57$ | $95$ | $127$ | $163$ | $158$ | $400$ |
+
+Is there sufficient evidence to conclude that a student's anxiety level depends on the pressure to succeed?
+
+$H_0:$  
+
+$H_A:$
+
+```{r}
+
+```
+
+
+
+
+```{r}
+set.seed(123)
+weight_loss <- data.frame(before = round(rnorm(35,215,15),1), after = round(rnorm(35,205,15),1))
+```
