@@ -1,0 +1,5 @@
+```{r}
+expected_pets <- data.frame(num_pets = c("0","1","2","3","4+"), percent = c(18,25,30,18,9))
+
+sample_pets <- data.frame(num_pets = c("0","1","2","3","4+"), count = c(210,240,320,140,90))
+```
