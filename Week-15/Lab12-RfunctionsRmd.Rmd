@@ -1,0 +1,325 @@
+---
+title: "Lab 12 - Practice with R functions"
+author: Student 1 Name, Student 2 Name
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: no
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+library(openintro)
+library(tidyverse)
+library(BSDA)
+library(palmerpenguins)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+
+### Three t-tests
+
+We will do a t-test with some simulated data representing the salary of of people at a particular company. The company advertises an average salary of $\$80,000$. We will run a hypothesis test to see if the salary is actually lower than that:
+
+$H_0: \mu = 80000$
+
+$H_A: \mu < 80000$
+
+Run the code below to generate the data.
+
+```{r}
+set.seed(123)
+company_data <- data.frame(salary = (round(rchisq(3200,3))*2500+72700))
+```
+
+#### Traditional Method
+
+First let's run a t-test the good old fashioned way. 
+
+1. Run code to find the mean and standard deviation of the income data. Save these values locally.
+
+```{r}
+# insert code here
+```
+
+2. Assuming the null hypothesis is true, draw a graph that represents the sampling distribution for the sample statistic. Include the following four features in your graph:
+
++ A title that indicates the type of sampling distribution and standard error for the sample statistic.
++ indicate the value at the center of the distribution on the $x$-axis 
++ indicate the approximate location of the sample statistic
++ shade the region of the graph that represents the $p$-value of the sample statistic
+
+<center>
+<img src="./place_holder.JPG" width="450"/>
+</center>
+
+3. Find the p-value.
+
+```{r}
+# insert code here
+```
+
+4. What is the conclusion of the hypothesis test? (Answer within the context of the problem)
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+#### Using Summary Statistic
+
+5. Now find the p-value using `tsum.test` and verify that you get the same value.
+
+```{r}
+# insert code here
+```
+
+#### Using the data itself
+
+The most common situation you encounter in the real world is raw data. Instead of saving the mean and standard deviation and then plugging those into `tsum.test()` it would be ideal to just plug the data in. 
+
+There is a way to do this using `t.test()`. See the code below and verify that it gives the same p-value that you found with the last two methods:
+
+```{r}
+t.test(company_data$salary, mu = 80000, alternative = "less")
+```
+
+---
+
+Recall, there is a data set called `penguins` that has data on penguins in the Palmer Archipelago. Test the following hypotheses:
+
+$H_0: \mu = 200,$ average flipper length is $200$ mm
+
+$H_A: \mu > 200,$ average flipper length is greater than $200$ mm
+
+6. Use two different methods to test the alternate hypothesis and make sure you get the same value.
+
+```{r}
+# insert code here
+```
+
+### Difference of Means
+
+7. Use `filter()` to get three separate data frames, one for each penguin species.
+
+```{r}
+# insert code here
+```
+
+8. Now use `t.test()` with `var.equal = TRUE` to test if Adelie and Chinstrap penguins have a statistically significant difference in average flipper length.
+
+```{r}
+# insert code here
+```
+
+---
+
+### Paired Test
+
+There is a dataset preloaded in `R` called `Blood` that has blood pressure measuremtns for $15$ patients measured by a machine and a doctor. We can use a piared test to determine if there is a statistically significant difference in the two methods. To do this, use `t.test()` along with the option `paired = TRUE`.
+
+9. Use `t.test()` to determine if there is a statistically significant difference in the two methods of testing blood pressure.
+
+```{r}
+# insert code here
+```
+
+---
+
+## Chi-square tests
+
+### Goodness of fit
+
+We saw how to use chi-square tests to measure how well some data fits a particular distribution. Let's investigate the following situation:
+
+Employers want to know which days of the week employees are absent in a five-day work week. Most employers would like to believe that employees are absent equally likely throughout the week. Suppose a random sample of $60$ managers were asked on which day of the week they had the highest number of employee absences. The results were distributed as:
+
+|  | Monday | Tuesday | Wednesday | Thursday | Friday | Total |  
+|:--:|:--:|:--:|:--:|:--:|
+| most absences | 18 | 6 | 7 | 8 | 21 | 60 |
+
+10. If the expected distribution is uniform, what is the expected number of managers that say the most absences occur on Monday?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+11. Are the conditions to use a chi-squared test met?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+12. Find the chi-square statistic manually using the formula:
+
+$$ \chi^2 = \sum \frac{(O-E)^2}{E}$$
+
+13. Finally, find the p-value with `1-pchisq(stat, df)` where stat is the value you found in the last turn and the degrees of freedom is the number of bins minus 1.
+
+```{r}
+# insert code here
+```
+
+14. Now repeat the test but use `chisq.test()` and verify that you obtain the same value.
+
+```{r}
+# insert code here
+```
+
+---
+
+Maybe we shouldn't expect there to be an equal number of absences on every day. Let's assume people are twice as likely to be absent on Monday and Friday as other days. In this, case there is a $2/7$ chance that Monday and Friday are the days with the most absences and Tuesday-Thursday are all $1/7$.
+
+15. What are the expected number of absences on each day (your answers don't need to be whole numbers, decimals are okay)? 
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+16. Are the conditions to use a chi-square test still met?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+17. Find the chi-square statistic and then find the p-value using `1-pchisq()`.
+
+```{r}
+# insert code here
+```
+
+18. To make `chisq.test()` test against a non-uniform distribution, you need to tell it the likelihood of each possibility. Run the test with the observed values as the first argument and the second argument plug in `p=c(2/7,1/7,1/7,1/7,2/7)`.
+
+```{r}
+# insert code here
+```
+
+### Chi-square for Indepence
+
+In a volunteer group, adults $21$ and older volunteer from one to nine hours each week to spend time with a disabled senior citizen. The program recruits among community college students, four-year college students, and nonstudents. Below is a sample of the adult volunteers and the number of hours they volunteer per week.
+
+| Type of Volunteer | 1-3 hours | 4-6 hours | 7-9 hours | Total | 
+|:--:|:--:|:--:|:--:|:--:|
+| CC students | $11$ | $96$ | $48$ | $255$ | 
+| 4 yr. students | $96$ | $133$ | $61$ | $290$ | 
+| non-student | $91$ | $150$ | $53$ | $294$ | 
+| Total | $298$ | $95$ | $162$ | $839$ |
+
+We want to see if the number of hours people volunteer is associated to the type of student they are. For example, are community college students more likely to volunteer for longer? To do this, we need to test if the variables are independent with a chi-square test.
+
+Recall, to find the expected counts for any particular spot you need to calculate 
+
+$$ \displaystyle  \frac{ (\text{row total} \cdot \text{column total})}{\text{table total}}$$
+
+for every since item. Once you've calculate all the expected values you can compute the chi-square statistic the same way as before. 
+
+19. Find all of the expected counts for community college students.
+
+```{r}
+# insert code here
+```
+
+As you can see, this gets pretty tedious. Instead, lets make a data frame with all the data and plug that directly into `chisq.test()`. 
+
+20. Make a data frame containing all of the data and run `chisq.test()` on that data frame.
+
+```{r}
+# insert code here
+```
+
+21. What is the conclusion based on the p-value?
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+## Mixed practice
+
+For all of the following problems you should try to use built in `R` functions to perform the tests:
+
+22. A study suggests that the average college student spends $10$ hours per week communicating with others online. You believe that this is an underestimate and decide to collect your own sample for a hypothesis test. You randomly sample $60$ students and find that on average they spent $13.5$ hours a week communicating with others online with a standard deviation of $7$ hours. Conduct a hypothesis test if the true average is higher than $10$ hours.
+
+$H_0:$
+
+$H_A:$
+
+```{r}
+# insert code here
+```
+
+23. The expected percentage of the number of pets students have in their homes has the distribution as in the `expected_pets` data frame below. A simple random sample of $1000$ students resulted in the data in `sample_pets` below. Does the data provide evidence that the expected distribution of pets is correct at a $1 \%$ significance level? 
+
+$H_0:$
+
+$H_A:$
+
+```{r}
+# insert code here
+```
+
+24. A random survey of $1000$ people reported which genre of book was their favorite and the results are collected below. Is there statistically significant evidence that different age groups prefer different genres of book?
+
+| | Classics | Fantasy | Romance | Young Adult | Historical Fiction | Mystery | 
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| $10$-$20$ | $20$ | $39$ | $38$ | $50$ | $21$ | $30$ |
+| $20$-$30$ | $36$ | $51$ | $51$ | $38$ | $44$ | $43$ |
+| $30$-$40$ | $35$ | $48$ | $51$ | $35$ | $45$ | $48$ |
+| Over $40$ | $39$ | $54$ | $55$ | $21$ | $52$ | $56$ |
+
+```{r}
+# insert code here
+```
+
+25. In a political poll of $738$ randomly sampled Americans with $400$ Democrats and $338$ Republicans, the results found that $165$ Republicans support a new policy proposal, $215$ Democrats support it. Is there statistically significant evidence that the proportions of supporters are different in the two parties?
+
+```{r}
+# insert code here
+```
+
+26. From $430$ observations in a simple random sample from a population with known standard deviation of $\sigma = 16.7$, the sample mean is found to be $127$ with sample standard deviation $15$. Does the data provide statistically significant evidence that the true population mean is larger than $122$?
+
+```{r}
+# insert code here
+```
+
+27. Two groups are randomly sampled with $300$ observations in group A and $250$ observations in group B. Group A has a sample mean $38$ with sample standard deviation $5.2$. Group B has a sample mean $37$ with sample standard deviation $4.6$. Does the data provide statistically significant evidence the the mean of the groups is different?
+
+```{r}
+# insert code here
+```
+
+28. From the `yrbss` data, find if there is a statistically significant difference between the average height of ninth and tenth graders.
+
+```{r}
+# insert code here
+```
