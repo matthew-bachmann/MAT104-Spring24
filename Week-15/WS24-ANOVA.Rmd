@@ -1,0 +1,167 @@
+---
+title: "Worksheet 24 : ANOVA"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+library(MASS)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+
+## ANOVA
+
+- **AN**alysis **O**f **VA**riance
+
+
+
+1. The dataset `PlantGrowth` has data from an experiment for the amount of growth experienced by plants in three groups: two treatment groups and one control group. Use anova to determine if there is a statistically significant difference in the means for the groups.
+
+
+
+```{r}
+#insert code here
+```
+
+Now, let's run an anova:
+
+```{r}
+# insert code here
+```
+
+
+
+### Conditions
+
+There are three conditions to apply anova:
+
+
+
+
+
+```{r}
+# insert code here
+```
+
+## Correlation
+
+```{r}
+load("./parenthood.Rdata")
+load("./pearson_correlations.Rdata")
+load("./effort.Rdata")
+```
+
++ This data captures how grumpy Danielle is, how much she slept in a day, and how much her baby slept in a day.
+
+Consider the following plots:
+
+```{r}
+ggplot(parenthood, aes(x=dan.sleep, y=dan.grump)) + geom_point()
+```
+
+```{r}
+ggplot(parenthood, aes(x=baby.sleep, y=dan.grump)) + geom_point()
+```
+
+
+
+### Covariance
+
+To capture this relationship, we introduce the covariance:
+
+$$\displaystyle COV(X,Y) = \frac{1}{N-1} \sum (X_i - \bar{X})(Y_i-\bar{Y})$$
+
+The R code to compute the covariance is 
+```{r}
+# insert code here
+```
+
+
+
+### Correlation coefficient
+
+The Pearson correlation coefficient $r_{XY}$ is a standardized covariance measure:
+
+$$r_{XY} = \frac{COV(X,Y)}{s_Xs_Y} $$
+
+### Properties of $r_{XY}$
+
+
+
+### Interpreting the Pearson correlation coefficient
+
+Below is data with various Pearson correlation coefficients:
+
+```{r}
+ggplot(outcomes, aes(x=V1,y=V2))+geom_point() + facet_wrap(~pearson)
+```
+
+
+
+| Correlation | Strength | Direction |
+|:--|:--|:--|
+| $-1$ to $-0.9$ | Very Strong | Negative | 
+| $-0.9$ to $-0.7$ | Strong | Negative | 
+| $-0.7$ to $-0.4$ | Moderate | Negative | 
+| $-0.4$ to $-0.2$ | Weak | Negative | 
+| $-0.2$ to $0$ | Negligible | Negative | 
+| $0$ to $0.2$ | Negligible | Positive | 
+| $0.2$ to $0.4$ | Weak | Positive | 
+| $0.4$ to $0.7$ | Moderate | Positive | 
+| $0.7$ to $0.9$ | Strong | Positive | 
+| $0.9$ to $1$ | Very Strong | Positive |
+
+1. Make a scatter plot for penguin body mass vs. flipper length with facets by species. Looking only at the plots, can you tell for which species the body mass has the strongest relationship to flipper length? What about the weakest?
+
+```{r}
+
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+2. Use the `filter()` and `cor()` function to find the Pearson correlation coefficient for body mass and flipper length for each species. Which species has the strongest relationship?
+
+
+```{r}
+
+```
+
+<div>
+:::{#answer}
+
+ANSWER HERE
+
+:::
+</div>
+
+3. Load the data set `mlb_players_18` and filter the data to only contain outfielders (outfielders have position `LF`, `RF`, or `CF`). Compute the standard deviation of the three groups to make sure we can perform ANOVA.
+
+```{r}
+# insert code here
+```
+
+
+4. 11. Perform ANOVA and use the $p$-value to determine if there is a statistically significant difference between the mean batting average (AVG) for the three positions using a significance level of $0.10$.
+
+```{r}
+# insert code here
+```
