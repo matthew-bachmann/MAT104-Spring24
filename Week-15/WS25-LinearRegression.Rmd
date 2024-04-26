@@ -1,0 +1,272 @@
+---
+title: "Worksheet 25 : Correlation and Linear Regression"
+output:
+  html_document:
+    css: ./style.css
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+  
+```{r global_options, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(openintro)
+library(MASS)
+library(BSDA)
+library(palmerpenguins)
+library(car)
+library(rgl)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+---
+
+Load data
+
+```{r}
+load("~/Documents/GitHub/MAT104-Spring24/Week-14/parenthood.Rdata")
+```
+
+
+### Caution
+
++ Use caution when interpreting a pearson correlation coefficient.
++ The correlation may not tell you what you think it does about the data.
+
+Consider the following data set:
+```{r}
+cor(anscombe$x1,anscombe$y1)
+```
+
++ Based on the correlation coefficient we might imagine a scatter plot with a slight positive linear association. 
+
+```{r}
+# ggplot(anscombe, aes(x=x1,y=y1))+geom_point()
+```
+
+Now let's check
+```{r}
+cor(anscombe$x2,anscombe$y2)
+```
+
++ The same correlation coefficient! We should get a similar graph right?
+
+```{r}
+# ggplot(anscombe, aes(x=x2,y=y2))+geom_point()
+```
+
++ Nope, what about the others?
+```{r}
+cor(anscombe$x3,anscombe$y3)
+
+cor(anscombe$x4,anscombe$y4)
+```
+
+
+```{r}
+# ggplot(anscombe, aes(x=x3,y=y3))+geom_point()
+# ggplot(anscombe, aes(x=x4,y=y4))+geom_point()
+```
+
+
+Notes:
+
+
+
+---
+
+## Linear Regression
+
+Let's go back to the parenthood data we used last class:
+
+```{r}
+ggplot(parenthood, aes(x=dan.sleep,y=dan.grump))+geom_point()
+```
+
+The data looks like there is a linear relationship between `dan.sleep` and `dan.grump`, so let's add a line to our plot that represents this relationship.
+
+### Meaning of the Parameters
+
+To make an equation for a line we use the slope-intercept formula:
+
+$$y=mx+b$$
+where $m$ is the slope of the line and $b$ is the $y$-intercept. 
+
+In statistics, we typically use different letters but the equation is the same:
+$$\hat{Y_i} = b_1 X_i + b_0$$
+where $b_1$ is the slope and $b_0$ is the $y$-intercept. The values $b_1$ and $b_0$ are called coefficients. 
+
+1. Interpret $b_1$, $b_0$, $X_i$, and $\hat{Y}_i$ in the context of the parenthood data. Make a best guess for $b_0$ and $b_1$.
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+Let's add the line we predicted to the graph
+
+```{r}
+ggplot(parenthood, aes(x=dan.sleep,y=dan.grump)) +
+  geom_point() 
+```
+
+ 
++ Notice that the points don't all land directly on the line (in fact none of them do). 
++ So, when we plug an $X$ value into the line, all we get is a *prediction* of the $y$-value (this is why there is a hat on the $Y_i$ in the equation).
+
+
+### Residuals
+
+
+
+The graph below displays the error between our prediction and the true data in red:
+
+```{r, eval=TRUE}
+# Use our slope and intercept guesses to predict the y-values
+predictions <- data.frame(Y_hat = -10*parenthood$dan.sleep + 135)
+
+# Plot segments joining the actual points and the predicted points
+ggplot(parenthood, aes(x=dan.sleep,y=dan.grump)) +
+  geom_point() + 
+  geom_abline(intercept = 135, slope = -10, color="blue") + 
+  geom_segment(aes(xend = dan.sleep, yend = predictions$Y_hat, color = "resid"))
+
+```
+
+
+
+
+
+$$\epsilon_i = Y_i - \hat{Y}_i$$
+
+---
+
+## Minimizing error
+
+
+
++ One approach for this is to minimize the so called **sum of the squared residuals**:
+
+$$ \sum \epsilon_i^2 = \sum (Y_i - \hat{Y}_i)^2$$
+
++ Find $\hat{b}_1$ and $\hat{b}_0$ so that...
+
+
+---
+
+### Using R to find the fits
+
+To find the best fitting regression line we use `lm()`:
+
+```{r}
+
+```
+
+So, the best fitting line from before is:
+
+```{r}
+ggplot(parenthood, aes(x=dan.sleep,y=dan.grump))+geom_point()
+```
+
+## Multiple Regression
+
+
+ 
+
+The model we use for two predictors is:
+$$\hat{Y}_i = b_2 X_{i,2} + b_1 X_{i,1} + b_0$$
+
+where $X_{i,2}$ is the amount of sleep the baby got on day $i$ and $X_{i,1}$ is the amount of sleep Danielle got on day $i$.
+
++ If we had three predictors the equation would be:
+
+$$\hat{Y}_i = b_3 X_{i,3} + b_2 X_{i,2} + b_1 X_{i,1} + b_0$$
+
+
+
+To find the best fitting regression line with multiple predictors we use `lm()`:
+
+```{r}
+
+```
+
+```{r}
+# scatter3d(dan.grump ~ dan.sleep + baby.sleep, parenthood)
+# rglwidget()
+```
+
+---
+
+## Class Activity
+
+1. Using the penguins data set, perform a simple linear regression to model body mass using the predictor variable bill length. What values do you get for $\hat{b}_0$ and $\hat{b}_1$? Graph a scatter plot for the data and include your regression model in the plot.
+
+```{r}
+
+```
+
+<div>
+:::{#answer}
+
+$\hat{b}_0 =$
+
+$\hat{b}_1 =$
+
+:::
+</div>
+
+2. Use `cor()` to find the strength of the correlation between bill length and body mass. 
+
+```{r}
+
+```
+
+
+
+3. Use simple linear regression to model the body mass of a penguin as predicted by the flipper length of a penguin. What values do you get for $\hat{b}_0$ and $\hat{b}_1$? Plot a scatter plot for the data with the line you found.
+
+```{r}
+
+```
+
+<div>
+:::{#answer}
+
+$\hat{b}_0 =$
+
+$\hat{b}_1 =$
+
+:::
+</div>
+
+4. Use multiple linear regression to model the body mass using the predictors flipper length and bill length for the penguin data. Assuming $X_1$ is flipper length and $X_2$ is bill length, what values do you get for $\hat{b}_0$,  $\hat{b}_1$, and $\hat{b}_2$? 
+
+```{r}
+
+```
+
+<div>
+:::{#answer}
+
+$\hat{b}_0 =$
+
+$\hat{b}_1 =$
+
+$\hat{b}_2 =$
+
+:::
+</div>
+
+
+
+
+
+
