@@ -1,0 +1,306 @@
+---
+title: "Lab 13-Final Review"
+output:
+  html_document:
+    css: ./style.css
+    toc: no
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(eval = TRUE, results = TRUE)
+```
+
+
+1. Consider a data set consisting of four data points $\{1,4,8,13 \}$. Find the mean of the data.
+
+```{r}
+# insert code here
+```
+
+2. A national standardized test has an average score of $1200$ and standard deviation of $150$. If a student has a Z-score of $1.3$, what is their score on the test?
+
+```{r}
+# insert code here
+```
+
+---
+
+
+3. The number of pets in homes in a randomly selected city is described by the probability distribution given below. What is the probability of a household having 4 or more pets?
+
+| Number of Pets | Probability |
+|:--: | :--:|
+|0 | .22 |
+|1 | .32 |
+|2 | .25 |
+|3 | .08 |
+|4+ | ?? |
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Provide written answers here and include any work if needed.
+
+:::
+
+---
+
+4. A trading card brand sells cards in packs of $100$. There are three types of cards in each pack: attack, defense, and resource cards. The company claims that $45 \%$ of the cards are attackers, $35\%$ are defensive, and $20 \%$ are resource cards. Cards from each group are randomly assigned to packages. Suppose you bought a package of cards and counted the types from each group. Conduct a hypothesis test to test the claim that $45 \%$ of the cards are attackers, $35\%$ are defensive, and $20 \%$ are resource cards?
+
+$H_0:$
+
+$H_A:$
+
+```{r}
+# insert code here
+```
+
+
+---
+
+5. The wingspan of bald eagles are normally distributed with a mean of $202.5$ cm and a standard deviation of $18.3$ cm. Find the probability that the mean wingspan for $15$ randomly selected eagles is greater than $208$ cm. 
+
+```{r}
+# insert code here
+```
+
+
+---
+
+6. Identify the type of data (categorical nominal, categorical ordinal, numeric discrete, or numeric continuous) that would be used to describe a response to the following:
+
+(A.) percent body fat <br>
+(B.) time spent watching ads on youtube in a day <br>
+(C.) a person's most listened to artist <br>
+(D.) social security number <br>
+(E.) amount of statistics learned, where the options are: (none), (some), (all of the stats)
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+
+
+---
+
+
+7. Save `fastfood` data locally. (A.) Determine $b_0$, $b_1$, and $b_2$ for the best fitting multiple linear regression model for the calories of a fast food item as described by protein and sugar content. (B.) Based on your model, does protein content or sugar content have a larger effect on the total number of calories of a food item (Explain your reasoning)? 
+
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+(A.) Answer here
+
+(B.) Answer here
+
+:::
+</div>
+
+---
+
+8. Using the `fastfood` data. Test if there is a statistically significant difference in the average number of calories for a food item at the different restaurants or explain why our methods don't apply.
+
+```{r}
+# insert code here
+```
+
+---
+
+9. A doctor sees a sick child that either has measles or the flu. The doctor knows that $97 \%$ of sick children in that neighborhood have the flu, while the other $3 \%$ are sick with measles. A well-known symptom of measles is a rash. The probability of having a rash if one has measles is $0.95$. Occasionally children with the flu also develop rash, and the probability of having a rash if one has flu is $0.08$. Upon examining the child, the doctor finds a rash. What is the probability that the child has measles?
+
+```{r}
+# insert code here
+```
+
+---
+
+10. Suppose that $A$ and $B$ are events and $P(A)=.2$, $P(B)=.35$, and $P(A \text{ and } B)=.07$. Answer the following questions:
+
+**(A.) Are events $A$ and $B$ independent, why or why not?**
+
+**(B) Are events $A$ and $B$ disjoint, why or why not?**
+
+**(C) Find $P(A|B)$.** 
+
+**(D) Find $P(A \text{ or } B)$ **.
+
+
+```{r}
+# insert code here if needed
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+
+---
+
+11. Kyle commutes to work on a bike, so he goes for a bike ride about $70 \%$ of days. He also likes to run and goes for a run $40 \%$ of days. The probability that Kyle goes for a run on a day that he already went on a bike ride is $25 \%$. On a random day, what is the probability that Kyle (A.) both rode his bike and went on a run. (B.) either rode his bike or went on a run.  **
+
+```{r}
+# insert code here if needed
+```
+
+
+---
+
+12. Students at a university were polled about whether they live on campus or off campus. A table separating the students by grade and by living arrangement is shown below. Conduct a hypothesis test to determine if these data provide evidence to suggest that living situation depends on grade level or explain why or methods do not apply.
+
+
+| | On Campus | Off Campus | Total |
+|:--:|:--:|:--:|:--:|
+| First Year | $200$ | $85$ | $285$ |
+| Sophomore | $102$ | $50$ | $152$ |
+|Junior  | $50$ |  $93$ | $143$ |
+|Senior  | $38$ | $32$ | $70$ |
+| Totals: | $390$ | $260$ | $650$ |
+
+
+```{r}
+# insert code here
+```
+
+
+
+---
+
+
+13. It is reported that $10 \%$ of a particular brand of candy bars don't have peanuts though they claim to have peanuts. Since every time you buy this candy bar it does contain peanuts, you are suspicious of this claim. You buy a box of $80$ candy bars and $10$ of them didn't contain peanuts. Construct a $90 \%$ confidence interval for the true proportion of candy bars that don't contain peanuts or explain why our methods do not apply.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+14. In a simple random sample of $75$ candy bars, $7$ of the candy bars did not contain peanuts. Construct a $90 \%$ confidence interval for the true proportion of candy bars that don't contain peanuts or explain why our methods do not apply.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+15. From a simple random sample of $600$ people, $428$ of them like cats. Construct a $90 \%$ confidence interval for the true proportion of people that like cats or explain why our methods do not apply.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+16. A local bank needs information on the savings account balances of its customers. A random sample of $15$ accounts showed an average balance of $\$ 687$ and standard deviation of $\$ 265$. Assume the account balances are normally distributed, construct a $98 \%$ confidence interval for the true mean balance in the savings accounts or explain why our methods do not apply.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+17. A researcher believes that the percentage of people that watch Game of Thrones is different than $27 \%$. He randomly samples $900$ people and $220$ of them watch. Perform a hypothesis test in order to test his claim at a significance level of $0.05$. 
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+Answer here
+
+:::
+</div>
+
+---
+
+18. Save the `Abc` data set locally. Test if there is a statistically significant difference in the average response for the three groups or explain why our methods do not apply.
+
+```{r}
+# insert code here
+```
+
+---
+
+19. Save the `Anxiety` data locally. Make a scatter plot with $x$-axis anxiety level before the test and $y$-axis score on a math test. Find the pearson correlation coefficient between the two variables and interpret the result within the context of the problem.
+
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+---
+
+20. Using the `Anxiety` data set again, use linear regression to model the relationship between anxiety and scores. Find the coefficients $b_0$ and $b_1$ and interpret them within the context of the problem. Plot the scatter plot from the previous problem again and add the linear regression model to your plot.
+
+```{r}
+# insert code here
+```
+
+<div>
+:::{#answer}
+
+:::
+</div>
+
+
